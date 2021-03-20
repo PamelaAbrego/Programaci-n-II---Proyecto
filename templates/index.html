@@ -1,11 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proyecto</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" />
+    <link rel="stylesheet" href="/static/style.css" />
+    <title>COMSEDI S.A. DE C.V.</title>
 </head>
-<body>
-    <h1>COMSEDI</h1>
+
+<body id="body">
+
+    <div class="container">
+        <nav class="navbar">
+            <div class="nav_icon" onclick="toggleSidebar()">
+                <i class="fa fa-bars" aria-hidden="true"></i>
+            </div>
+            <div class="navbar_left">
+                <a href="#">Nuestra Historia</a>
+                <a href="#">Misión y Visión</a>
+                <a href="#">Alquiler de Grúas</a>
+                <a href="#">Cotización de proyectos</a>
+            </div>
+
+            <div class="nabar_rigth">
+                <a href="#">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                </a>
+                <a href="#">
+                    <i class="fa fa-clock-o" aria-hidden="true"></i>
+                </a>
+            </div>
+        </nav>
+    </div>
+
+    <main>
+        <div class="main_container">
+
+            <div class="main_title">
+                <h1>COMSEDI S.A. DE C.V.</h1>
+            </div>
+
+            <div class="information">
+                COMSEDI, S.A. DE C.V., es una empresa del sector eléctrico, con personal altamente capacitado para
+                ejecutar trabajos en el area de Poda y Construcción Eléctrica en baja y media tensión, con un servicio
+                de alta calidad, regidos por La Ley de Prevención de Riesgos, ejecutando trabajos con seguridad y
+                calidad, ofreciendo a nuestros clientes la excelencia en nuestros servicios
+            </div>
+            <div class="main__cards">
+                <div class="card">
+                    <i class="fa fa-bolt fa-2x text-red" aria-hidden="true"></i>
+                    <div class="card_inner">
+                        <p class="text-primary-p">DELSUR</p>
+                        <span class="font-bold text-title">2012</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <i class="fa fa-wrench fa-2x" aria-hidden="true"></i>
+                    <div class="card_inner">
+                        <p class="text-primary-p">FOVIAL</p>
+                        <span class="font-bold text-title">2012</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <i class="fa fa-usd fa-2x"></i>
+                    <div class="card_inner">
+                        <p class="text-primary-p">FISDL</p>
+                        <span class="font-bold text-title">2012</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <i class="fa fa-globe fa-2x text-green" aria-hidden="true"></i>
+                    <div class="card_inner">
+                        <p class="text-primary-p">EPR</p>
+                        <span class="font-bold text-title">2012</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="/static/script.js"></script>
 </body>
+
 </html>
