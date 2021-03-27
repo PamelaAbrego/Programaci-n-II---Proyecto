@@ -27,5 +27,10 @@ def cotizaciones():
     return render_template("cotizaciones.html")
 
 
+@app.route("/mision_vision")
+def mision_vision():
+    return render_template("mision_vision.html")
+
+
 if __name__ == "__main__":
     app.run(debug=True)

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" />
+    <link rel="stylesheet" href="{{url_for('static', filename='style_mision_vision.css')}}">
+    <title>MISIÓN Y VISIÓN</title>
+</head>
+
+<body id="body">
+
+    <div class="container">
+        <nav class="navbar">
+            <div class="nav_icon" onclick="toggleSidebar()">
+                <i class="fa fa-bars" aria-hidden="true"></i>
+            </div>
+            <div class="navbar__left">
+                <a href="{{url_for('home')}}" class="active_link" name="navbar_q" id="navbar_q">¿Quiénes Somos?</a>
+                <a href="{{url_for('gruas')}}" name=" navbar_a" id="navbar_a">Alquiler de Grúas</a>
+                <a href="{{url_for('cotizaciones')}}" id="navbar_a">Cotización de
+                    Proyectos</a>
+            </div>
+
+            <div class="navbar__rigth">
+                <a href="#">
+                    <i class="fa fa-search fa-2x text-blue" aria-hidden="true"></i>
+                </a>
+                <a href="#">
+                    <i class="fa fa-clock-o fa-2x text-blue" aria-hidden="true"></i>
+                </a>
+                <a href="#">
+                    <img width="30" src="/static/images/avatar.png" alt="" />
+                </a>
+            </div>
+        </nav>
+
+        <main>
+            <div class="main__container">
+
+                <div class="main__title">
+                    <h1>COMSEDI S.A. DE C.V.</h1>
+                </div>
+                <br>
+                <div class="information">
+                    MISIÓN Y VISIÓN
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="{{url_for('static', filename='script_mision_vision.js')}}"></script>
+</body>
+
+</html>
