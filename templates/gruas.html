@@ -9,6 +9,34 @@
 
 <body>
     <h1>Alquiler de Grúas</h1>
+    <form>
+        <label for="cliente">Cliente:</label>
+        <input type="text" id="cliente" name="cliente" placeholder="Cliente..."><br><br>
+
+        <label for="email">Ingresa tu Correo:</label>
+        <input type="email" id="email" name="email" placeholder="Correo..."><br>
+
+        <p>Seleccione el modelo de grua que necesita:</p>
+        <input type="radio" id="modelo1" name="modelo" value="modelo1">
+        <label for="modelo1">Modelo1</label><br><br>
+        <input type="radio" id="modelo2" name="modelo" value="modelo2">
+        <label for="modelo2">Modelo2</label><br><br>
+
+        <label for="cantidad">Cantidad de gruas (entre 1 y 2):</label>
+        <input type="number" id:"cantidad" name:"cantidad" min="1" max="2"><br><br>
+
+        <!--ubicacion-->
+
+        <label for="fecha">Fecha:</label>
+        <input type="date" id:"fecha" name:"fecha"><br><br>
+
+        <label for="tiempo">Tiempo requerido (en horas):</label>
+        <input type="text" id:"tiempo" name:"tiempo">
+
+    </form><br><br>
+
+    <button onclick="">Enviar</button><br><br>
+    <script src="{{url_for('static', filename='script_admin.js')}}"></script>
 </body>
 
 </html>
