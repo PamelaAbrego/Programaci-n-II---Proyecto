@@ -9,18 +9,19 @@
 </head>
 
 <body>
-  <table id="part2" class="beta" name="Formulario">
+  <table id="tabla" class="admintbl" name="Registros">
     <tr>
       <th>Cliente</th>
       <th>Correo</th>
       <th>Modelo de grua</th>
       <th>Cantidad</th>
-      <th>Localizacion</th>
+      <th>Ubicacion</th>
       <th>Fecha</th>
       <th>Tiempo requerido</th>
     </tr>
   </table><br>
-  <script src="{{url_for('static', filename='script_admin.js')}}"></script>
+  <button onclick="actDatos()">Actualizar datos</button>
+  <script src="/static/script_admin.js"></script>
 </body>
 
 </html>
