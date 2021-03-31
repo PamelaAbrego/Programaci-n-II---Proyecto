@@ -4,22 +4,22 @@ document.getElementById("btn__iniciar-sesion").addEventListener("click", iniciar
 window.addEventListener("resize", anchoPagina);
 
 //declaracion de variables
-var contenedor_login_register = document.querySelector(".contenedor__login-register");
-var formulario_login = document.querySelector(".formulario__login");
-var formulario_register = document.querySelector(".formulario__register");
-var caja_trasera_login = document.querySelector(".caja__trasera-login");
-var caja_trasera_register = document.querySelector(".caja__trasera-register");
+var contenedorLoginRegister = document.querySelector(".contenedorLoginRegister");
+var formLogin = document.querySelector(".formLogin");
+var formRegister = document.querySelector(".formRegistro");
+var backBoxLogin = document.querySelector(".backBoxLogin");
+var backBoxRegister = document.querySelector(".backBoxRegister");
 
 function anchoPagina() {
     if (window.innerWidth > 850) {
-        caja_trasera_login.style.display = "block";
-        caja_trasera_register.style.display = "block";
+        backBoxLogin.style.display = "block";
+        backBoxRegister.style.display = "block";
     } else {
-        caja_trasera_register.style.display = "block";
-        caja_trasera_register.style.opacity = "1";
-        caja_trasera_login.style.display = "none";
-        formulario_login.style.display = "none";
-        contenedor_login_register.style.left = "0px";
+        backBoxRegister.style.display = "block";
+        backBoxRegister.style.opacity = "1";
+        backBoxLogin.style.display = "none";
+        formLogin.style.display = "none";
+        contenedorLoginRegister.style.left = "0px";
 
     }
 }
@@ -27,17 +27,17 @@ anchoPagina();
 
 function iniciarSesion() {
     if (window.innerWidth > 850) {
-        formulario_register.style.display = "none";
-        contenedor_login_register.style.left = "10px";
-        formulario_login.style.display = "block";
-        caja_trasera_register.style.opacity = "1";
-        caja_trasera_login.style.opacity = "0";
+        formRegister.style.display = "none";
+        contenedorLoginRegister.style.left = "10px";
+        formLogin.style.display = "block";
+        backBoxRegister.style.opacity = "1";
+        backBoxLogin.style.opacity = "0";
     } else {
-        formulario_register.style.display = "none";
-        contenedor_login_register.style.left = "0px";
-        formulario_login.style.display = "block";
-        caja_trasera_register.style.display = "block";
-        caja_trasera_login.style.display = "none";
+        formRegister.style.display = "none";
+        contenedorLoginRegister.style.left = "0px";
+        formLogin.style.display = "block";
+        backBoxRegister.style.display = "block";
+        backBoxLogin.style.display = "none";
 
     }
 
@@ -45,18 +45,18 @@ function iniciarSesion() {
 
 function register() {
     if (window.innerWidth > 850) {
-        formulario_register.style.display = "block";
-        contenedor_login_register.style.left = "410px";
-        formulario_login.style.display = "none";
-        caja_trasera_register.style.opacity = "0";
-        caja_trasera_login.style.opacity = "1";
+        formRegister.style.display = "block";
+        contenedorLoginRegister.style.left = "410px";
+        formLogin.style.display = "none";
+        backBoxRegister.style.opacity = "0";
+        backBoxLogin.style.opacity = "1";
     } else {
-        formulario_register.style.display = "block";
-        contenedor_login_register.style.left = "0px";
-        formulario_login.style.display = "none";
-        caja_trasera_register.style.display = "none";
-        caja_trasera_login.style.display = "block";
-        caja_trasera_login.style.opacity = "1";
+        formRegister.style.display = "block";
+        contenedorLoginRegister.style.left = "0px";
+        formLogin.style.display = "none";
+        backBoxRegister.style.display = "none";
+        backBoxLogin.style.display = "block";
+        backBoxLogin.style.opacity = "1";
     }
 
 }
