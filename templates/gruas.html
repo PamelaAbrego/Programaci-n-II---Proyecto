@@ -8,31 +8,48 @@
 </head>
 
 <body>
-    <h1>Alquiler de Grúas</h1>
-    <form>
-        <label for="cliente">Cliente:</label>
-        <input type="text" id="cliente" name="cliente" placeholder="Cliente..."><br><br>
+    <div class="tittle">
+        <h1>Alquiler de Grúas</h1>
+    </div>
 
-        <label for="email">Ingresa tu Correo:</label>
-        <input type="email" id="email" name="email" placeholder="Correo..."><br>
+    <ul>
+        <li>
+            Marca: International Año: 1995 Costo: $70 por hora
+            <div class="img1"><img src="/static/images/1995.png" alt=""></div>
+        </li>
+        <li>
+            Marca: International Año: 1986 Costo: $70 por hora
+            <div class="img2"><img src="/static/images/1986.png" alt=""></div>
+        </li>
+    </ul>
 
-        <label for="modelo">Modelo:</label>
-        <input type="text" id="modelo" name="modelo" placeholder="Modelo1 o Modelo2"><br>
-
-        <label for="cantidad">Cantidad de gruas (entre 1 y 2):</label>
-        <input type="number" id="cantidad" name="cantidad" min="1" max="2"><br><br>
-
-        <!--ubicacion-->
-
-        <label for="fecha">Fecha:</label>
-        <input type="date" id="fecha" name="fecha"><br><br>
-
-        <label for="tiempo">Tiempo requerido (en horas):</label>
-        <input type="number" id="tiempo" name="tiempo">
-
-    </form><br><br>
-
-    <button onclick="add()">Enviar</button><br><br>
+    <div class="form">
+        <form>
+            <label for="cliente">Cliente:</label>
+            <input type="text" id="cliente" name="cliente" placeholder="Cliente..."><br><br>
+    
+            <label for="email">Ingresa tu Correo:</label>
+            <input type="email" id="email" name="email" placeholder="Correo..."><br>
+    
+            <label for="modelo">Modelo:</label>
+            <input type="text" id="modelo" name="modelo" placeholder="Modelo1 o Modelo2"><br>
+    
+            <label for="cantidad">Cantidad de gruas (entre 1 y 2):</label>
+            <input type="number" id="cantidad" name="cantidad" min="1" max="2"><br><br>
+    
+            <!--ubicacion-->
+    
+            <label for="fecha">Fecha:</label>
+            <input type="date" id="fecha" name="fecha"><br><br>
+    
+            <label for="tiempo">Tiempo requerido (en horas):</label>
+            <input type="number" id="tiempo" name="tiempo">
+    
+        </form><br><br>
+    
+        <button onclick="add()">Enviar</button><br><br>
+    </div>
+    
     <script src="/static/script_admin.js"></script>
 </body>
 
