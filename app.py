@@ -30,7 +30,8 @@ def cotizaciones():
 @app.route("/mision_vision")
 def mision_vision():
     return render_template("mision_vision.html")
-    
+
+
 @app.route("/admin")
 def admin():
     return render_template("admin.html")
