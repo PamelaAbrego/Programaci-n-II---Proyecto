@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil Cliente</title>
+</head>
+
+<body>
+    <h1>Alquileres</h1>
+
+    <h5>SOLO SE DEBEN MOSTRAR LOS ALQUIELERES QUE CONICIDAN CON EL LOGIN</h5>
+
+    <table id="tabla" class="admintbl" name="Registros">
+        <tr>
+            <th>Cliente</th>
+            <th>Correo</th>
+            <th>Modelo de grua</th>
+            <th>Cantidad</th>
+            <th>Ubicacion</th>
+            <th>Fecha</th>
+            <th>Tiempo requerido</th>
+            <th>Progreso</th>
+            <td> <progress id="progeso" max="100" value="25">25%</progress> </td>
+        </tr>
+    </table>
+
+    <button onclick="actDatos()">Actualizar datos</button>
+    <script src="{{url_for('static', filename='script_perfil_cliente.js')}}"></script>
+</body>
+
+</html>

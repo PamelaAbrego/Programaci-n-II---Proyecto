@@ -12,6 +12,11 @@ def home():
     return render_template("principal.html")
 
 
+@app.route("/perfil_cliente")
+def perfil_cliente():
+    return render_template("perfil_cliente.html")
+
+
 @app.route("/login")
 def login():
     return render_template("login.html")

@@ -1,5 +1,5 @@
 function enviado() {
-    document.getElementById("resultado_enviar").value = "Formluario enviado";
+    document.getElementById("resultado_enviar").innerHTML = "Formluario enviado";
 }
 
 function add() {
@@ -7,15 +7,16 @@ function add() {
     var email = document.getElementById("email").value;
     var modelo = document.getElementById("modelo").value;
     var cantidad = parseInt(document.getElementById("cantidad").value);
+    var ubicacion = document.getElementById("ubicacion").value;
     var fecha = String(document.getElementById("fecha").value);
     var tiempo = parseInt(document.getElementById("tiempo").value);
 
-    addResultToStorage(cliente, email, modelo, cantidad, fecha, tiempo);
+    addResultToStorage(cliente, email, modelo, cantidad, ubicacion, fecha, tiempo);
 
     enviado();
 }
 
-function addResultToStorage(cliente, email, modelo, cantidad, fecha, tiempo) {
+function addResultToStorage(cliente, email, modelo, cantidad, ubicacion, fecha, tiempo) {
     var addResultArray = [];
 
     if (localStorage.getItem("lAddResultArray") !== null) {
@@ -27,7 +28,7 @@ function addResultToStorage(cliente, email, modelo, cantidad, fecha, tiempo) {
         email: email,
         modelo: modelo,
         cantidad: cantidad,
-        /*ubicacion: ubicacion,*/
+        ubicacion: ubicacion,
         fecha: fecha,
         tiempo: tiempo
     }
@@ -50,7 +51,7 @@ function actDatos() {
         row.insertCell(1).innerHTML = array[i].email;
         row.insertCell(2).innerHTML = array[i].modelo;
         row.insertCell(3).innerHTML = array[i].cantidad;
-        row.insertCell(4).innerHTML = "Ubicacion";
+        row.insertCell(4).innerHTML = array[i].ubicacion;
         row.insertCell(5).innerHTML = array[i].fecha;
         row.insertCell(6).innerHTML = array[i].tiempo;
     }

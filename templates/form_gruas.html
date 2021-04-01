@@ -12,7 +12,8 @@
         <label for="cantidad">Cantidad de gruas (entre 1 y 2):</label>
         <input type="number" id="cantidad" name="cantidad" min="1" max="2"><br><br>
 
-        <!--ubicacion-->
+        <label for="ubicacion">Ubicación:</label>
+        <input type="text" id="ubicacion" name="ubicacion" placeholder="Ubicación..."><br><br>
 
         <label for="fecha">Fecha:</label>
         <input type="date" id="fecha" name="fecha"><br><br>
@@ -25,8 +26,9 @@
     <button onclick="add()">Enviar</button><br><br>
     <a href="{{url_for('admin_gruas')}}">Prueba en Aministrador</a>
     <br><br>
-    <label for="" id="resultado_enviar">HOLA</label>
+    <label for="" id="resultado_enviar"></label>
 
+    <a href="{{url_for('perfil_cliente')}}">Ver estados de mis alquileres</a>
     <script src="{{url_for('static', filename='script_admin.js')}}"></script>
 
 </div>
