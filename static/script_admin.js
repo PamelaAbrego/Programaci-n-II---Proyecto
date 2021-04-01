@@ -1,3 +1,7 @@
+function enviado() {
+    document.getElementById("resultado_enviar").value = "Formluario enviado";
+}
+
 function add() {
     var cliente = document.getElementById("cliente").value;
     var email = document.getElementById("email").value;
@@ -7,6 +11,8 @@ function add() {
     var tiempo = parseInt(document.getElementById("tiempo").value);
 
     addResultToStorage(cliente, email, modelo, cantidad, fecha, tiempo);
+
+    enviado();
 }
 
 function addResultToStorage(cliente, email, modelo, cantidad, fecha, tiempo) {
@@ -49,3 +55,4 @@ function actDatos() {
         row.insertCell(6).innerHTML = array[i].tiempo;
     }
 }
+

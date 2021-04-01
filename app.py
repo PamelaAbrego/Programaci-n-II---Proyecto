@@ -32,9 +32,14 @@ def mision_vision():
     return render_template("mision_vision.html")
 
 
-@app.route("/admin")
-def admin():
-    return render_template("admin.html")
+@app.route("/admin_gruas")
+def admin_gruas():
+    return render_template("admin_gruas.html")
+
+
+@app.route("/form_gruas")
+def form_gruas():
+    return render_template("form_gruas.html")
 
 
 if __name__ == "__main__":
