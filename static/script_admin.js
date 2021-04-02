@@ -10,13 +10,13 @@ function add() {
     var ubicacion = document.getElementById("ubicacion").value;
     var fecha = String(document.getElementById("fecha").value);
     var tiempo = parseInt(document.getElementById("tiempo").value);
-
-    addResultToStorage(cliente, email, modelo, cantidad, ubicacion, fecha, tiempo);
+    var estado = "Enviado";
+    addResultToStorage(cliente, email, modelo, cantidad, ubicacion, fecha, tiempo, estado);
 
     enviado();
 }
 
-function addResultToStorage(cliente, email, modelo, cantidad, ubicacion, fecha, tiempo) {
+function addResultToStorage(cliente, email, modelo, cantidad, ubicacion, fecha, tiempo, estado) {
     var addResultArray = [];
 
     if (localStorage.getItem("lAddResultArray") !== null) {
@@ -30,11 +30,34 @@ function addResultToStorage(cliente, email, modelo, cantidad, ubicacion, fecha, 
         cantidad: cantidad,
         ubicacion: ubicacion,
         fecha: fecha,
-        tiempo: tiempo
+        tiempo: tiempo,
+        estado: estado
     }
 
     addResultArray.push(current_add_result)
     localStorage.setItem("lAddResultArray", JSON.stringify(addResultArray));
+}
+
+function addResultToStorageRegistrosRecibidos(cliente, email, modelo, cantidad, ubicacion, fecha, tiempo) {
+    var addResultArray = [];
+
+    if (localStorage.getItem("RegistrosRecibidos") !== null) {
+        addResultArray = JSON.parse(localStorage.getItem("RegistrosRecibidos"));
+    }
+
+    var current_add_result = {
+        user: cliente,
+        email: email,
+        modelo: modelo,
+        cantidad: cantidad,
+        ubicacion: ubicacion,
+        fecha: fecha,
+        tiempo: tiempo,
+        estado: "Recibido"
+    }
+
+    addResultArray.push(current_add_result)
+    localStorage.setItem("RegistrosRecibidos", JSON.stringify(addResultArray));
 }
 
 function readArrayFromLocalStorage(keyName) {
@@ -44,6 +67,11 @@ function readArrayFromLocalStorage(keyName) {
 function actDatos() {
     var array = readArrayFromLocalStorage("lAddResultArray")
     var myTable = document.getElementById("tabla");
+
+    if (localStorage.getItem("lAddResultArray") !== null) {
+        addResultArray = JSON.parse(localStorage.getItem("lAddResultArray"));
+    }
+
     for (var i = 0; i < array.length; i++) {
         var row = myTable.insertRow(1);
 
@@ -54,6 +82,9 @@ function actDatos() {
         row.insertCell(4).innerHTML = array[i].ubicacion;
         row.insertCell(5).innerHTML = array[i].fecha;
         row.insertCell(6).innerHTML = array[i].tiempo;
+        array[i].estado = "Recibido"
+
+        addResultToStorageRegistrosRecibidos(array[i].user, array[i].email, array[i].modelo, array[i].cantidad, array[i].ubicacion, array[i].fecha, array[i].tiempo)
     }
 }
 

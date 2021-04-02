@@ -47,5 +47,10 @@ def form_gruas():
     return render_template("form_gruas.html")
 
 
+@app.route("/proyectos")
+def proyectos():
+    return render_template("proyectos.html")
+
+
 if __name__ == "__main__":
     app.run(debug=True)
