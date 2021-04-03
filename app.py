@@ -52,5 +52,15 @@ def proyectos():
     return render_template("proyectos.html")
 
 
+@app.route("/form_proyectos")
+def form_proyectos():
+    return render_template("form_proyectos.html")
+
+
+@app.route("/admin_proyectos")
+def admin_proyectos():
+    return render_template("admin_proyectos.html")
+
+
 if __name__ == "__main__":
     app.run(debug=True)

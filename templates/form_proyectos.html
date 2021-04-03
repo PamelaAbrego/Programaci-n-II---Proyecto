@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+
+    <style>
+
+    .correcion {
+        color:red;
+    }
+    </style>
+</head>
+
+<body>
+    <h1>Solicitud de cotización </h1>
+
+    <p> Completa este formulario para proceder con tu cotización: </p>
+
+    <form>
+    <p> <b> Tipo de cotización  </b> </p>
+    <input type="checkbox" id="Eléctrico" name="Coti">
+    <label for "CotiCivil"> Eléctrico </label> <br>
+    <input type="checkbox" id="Civil" name="Coti">
+    <label for "CotiCivil"> Civil </label> <br>
+    <input type="checkbox" id="Poda" name="Coti">
+    <label for "CotiPoda"> Poda </label>
+    <p id="sCoti" class="correcion"> </p>
+
+    <br>
+    <p> <b> Tipo de cliente </b> </p>
+    <input type="radio" id="Natural" name="Cliente">
+    <label for "ClienteNat"> Persona natural </label> <br>
+    <input type="radio" id="Empresa" name="Cliente">
+    <label for "ClienteEmp"> Empresa </label>
+	<p id="sClien" class="correcion"> </p>
+    
+    <br>
+    <br>
+    <label for "fname"> <b> Nombre persona/empresa </b> </label> <br>
+    <input type="text" id="fname" name="fname" placeholder="..." size="30">
+    <p id="sName" class="correcion"> </p>
+
+    <br>
+    <br>
+    <label for "fmail"> <b> Correo electrónico </b> </label> <br>
+    <input type="text" id="fmail" name="fmail" placeholder="..." size="40">
+    <p id="sMail" class="correcion"> </p>
+
+
+	<br>
+    <br>
+    <label for "fphone"> <b>  Número telefónico (sin guión) </b> </label> <br>
+    <input type="number" id="fphone" name="fphone" placeholder="..." size="40">
+    <p id="sPhone" class="correcion"> </p>
+    
+    <br>
+    <br>
+    <label for "datemin"> <b> Fecha de inicio </b> </label>
+    <input type="date" id="datemin" name="datemin"><br>
+    <p id="sDate1" class="correcion"> </p>
+
+    <br>
+    <br>
+    <label for "date"> <b> Fecha final </b> </label>
+    <input type="date" id="datef" name="date">
+	<p id="sDate2" class="correcion"> </p>
+    
+    <br>
+    <br>
+    <label for "floc"> <b> Ubicación del proyecto </b> </label> <br>
+    <input type="text" id="floc" name="floc" placeholder="Departamento, municipio, calle" size="40">
+    <p id="sLoc" class="correcion"> </p>
+
+    <br>
+    <br>
+    <label for "detalles"> <b> Descripción del proyecto </b> </label> <br>
+    <textarea id="detalles" name="detalles" rows=5, cols=50> </textarea>
+    <p id="sDesc" class="correcion"> </p>
+
+
+    </form>
+    
+    <br>
+    <br>
+    <button type="button" onclick="comprobarDatos()"> Apretar </button>
+
+
+    <p style="text-align:center;"> <b> Las fechas en las que se realice el proyecto estarán sujetas a la disponibilidad de nuestros servicios * </b> <p>
+
+<!--    <button type="button" onclick="loadImage()"> Load Image </button> -->
+
+<script src="{{url_for('static', filename='formscript.js')}}"></script>   
+</body>
+</html>
