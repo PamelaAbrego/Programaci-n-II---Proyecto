@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <style>
+    table {
+        font-size:12px;
+    }
+    </style>
+</head>
+
+<body>
+
+<h1> Tabla de cotizaciones </h1>
+
+<p> Estas son las cotizaciones pendientes: </p>
+
+<table id="userTableClient" style="width:90%" border="1">
+        <tr>
+            <th> Fecha cotización </th>
+            <th> Tipo de cotización</th>
+            <th> Tipo cliente</th>
+            <th> Nombre </th>
+            <th> Correo electrónico </th>
+            <th> Número telefónico </th>
+            <th> Fecha entrega</th>
+            <th> Fecha devolución </th>
+            <th> Ubicación proyecto </th>
+            <th> Descripción proyecto </th>
+        </tr>
+</table>
+<body onload="loadAddDataFromAllUsers()">
+
+<script src="{{url_for('static', filename='formscript.js')}}"></script>   
+</body>
+</html>
