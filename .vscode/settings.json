@@ -4,6 +4,9 @@
     "python.formatting.provider":"black",
     "editor.formatOnSave": true,
     "editor.formatOnType": true,
-    "python.linting.pycodestyleArgs":["--max-line-length=180"],
+    "python.linting.pycodestyleArgs": [
+        "--max-line-length=180"
+    ],
+    "liveServer.settings.port": 5502,
     
 }
