@@ -22,7 +22,15 @@ function checkLogin() {
     //obtener el usuario
     if (user !== null && user !== "") {
         if (password !== null && password !== "") {
-            alert(user + " " + password);
+
+            var canLogin = checkLoginInfo(user, password, userArray);
+            if (canLogin === true) {
+                alert("esta bien")
+                window.location.href = "";
+            } else {
+                alert("user or password are not correct")
+            }
+
         } else {
             alert("password must not be empty");
         }
@@ -39,6 +47,10 @@ function registerNewUser() {
 
     var userArray = [];
 
+    if (sessionStorage.getItem("wUserArray") !== null) {
+        userArray = JSON.parse(sessionStorage.getItem("wUserArray"));
+    }
+
     var current_reg = {
         user: reg_user,
         password: reg_password,
@@ -47,16 +59,35 @@ function registerNewUser() {
 
     userArray.push(current_reg);
     sessionStorage.setItem("wUserArray", JSON.stringify(userArray));
+
+    var userArrayEmpresas = [];
+
+    if (sessionStorage.getItem("wUserArray") !== null && document.getElementById("type") == "empresa") {
+        userArray = JSON.parse(sessionStorage.getItem("wUserArray"));
+    }
+
+    var current_reg = {
+        user: reg_user,
+        password: reg_password,
+
+    };
+
+    userArray.push(current_reg);
+    sessionStorage.setItem("wUserArray", JSON.stringify(userArray));
+
+
 }
 
 //funcion para encontrar ususarios en el arreglo
 
 function checkLoginInfo(user, password, userArray) {
-    for (var i = 0; i < userArray.length; i++) {
-        if (userArray[i].user === user && userArray[i].password === password) {
-            return true;
-        }
+    if (userArray !== null && userArray.length > 0) {
+        for (var i = 0; i < userArray.length; i++) {
+            if (userArray[i].user === user && userArray[i].password === password) {
+                return true;
+            }
 
+        }
     }
     return false;
 }
