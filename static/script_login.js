@@ -24,40 +24,42 @@ function checkLogin() {
         if (password !== null && password !== "") {
             var canLogin = checkLoginInfo(user, password, userArray);
             if (canLogin === true) {
+                var email = checkEmail(user, password, userArray);
                 var role = checkRole(user, password, userArray);
-                perfilActual(user, password, role);
+                perfilActual(user, password, email, role);
                 if (role === "Cliente") {
-                    window.location = "https://comsedi.herokuapp.com/perfil_cliente";
+                    window.location.href = "http://127.0.0.1:5000/perfil_cliente";
                     alert("Bienvenido")
                 }
                 if (role === "Administrador") {
                     location.href = "https://comsedi.herokuapp.com/perfil_admin"
                 }
             } else {
-                alert("user or password are not correct")
+                alert("El usuario o la contraseña no son correctos.")
             }
         } else {
-            alert("password must not be empty");
+            alert("Ingrese una contraseña, por favor.");
         }
     } else {
-        alert("user must not be empty");
+        alert("Ingrese un usuario, por favor.");
     }
 }
 
 //función que coloca en el local storage el perfil actual
-function perfilActual(user, password, role) {
-    if (localStorage.getItem("perfilActual") !== null) {
-        localStorage.removeItem("perfilActual");
+function perfilActual(user, password, email, role) {
+    if (sessionStorage.getItem("perfilActual") !== null) {
+        sessionStorage.removeItem("perfilActual");
     }
 
     var current_reg = {
         user: user,
         password: password,
+        email: email,
         role: role
     };
 
     perfilActual = current_reg;
-    localStorage.setItem("perfilActual", JSON.stringify(perfilActual));
+    sessionStorage.setItem("perfilActual", JSON.stringify(perfilActual));
 }
 
 
@@ -69,11 +71,20 @@ function checkRole(user, password, userArray) {
         }
     }
 }
+
+function checkEmail(user, password, userArray) {
+    for (var i = 0; i < userArray.length; i++) {
+        if (userArray[i].user === user && userArray[i].password === password) {
+            return userArray[i].email;
+        }
+    }
+}
 //funcion que guarda valores en el arreglo
 function registerNewUser() {
     var reg_user = document.getElementById("user_Reg").value;
     var reg_password = document.getElementById("passw_Reg").value;
     var reg_role = document.getElementById("role").value;
+    var reg_email = document.getElementById("email").value;
 
     var userArray = [];
 
@@ -84,6 +95,7 @@ function registerNewUser() {
     var current_reg = {
         user: reg_user,
         password: reg_password,
+        email: reg_email,
         role: reg_role
     };
 
@@ -155,4 +167,3 @@ function register() {
     }
 
 }
-

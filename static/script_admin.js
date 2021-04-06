@@ -1,25 +1,13 @@
-window.onload = datos;
-
-function readArrayFromLocalStorage(keyName) {
-    return JSON.parse(localStorage.getItem(keyName))
-}
-
-function datos() {
-    var perfilActual = readArrayFromLocalStorage("perfilActual");
-    document.getElementById("user_admin").innerHTML = perfilActual.user;
-}
 
 function enviado() {
     document.getElementById("resultado_enviar").innerHTML = "Formluario enviado";
 }
 
-function ir_form() {
-    window.location = "http://localhost:5000/form_gruas"
-}
 
 function add() {
-    var cliente = document.getElementById("cliente").value;
-    var email = document.getElementById("email").value;
+    var perfilActual = readArrayFromSessionStorage("perfilActual");
+    var cliente = perfilActual.user;
+    var email = perfilActual.email;
     var modelo = document.getElementById("modelo").value;
     var cantidad = parseInt(document.getElementById("cantidad").value);
     var ubicacion = document.getElementById("ubicacion").value;
@@ -79,6 +67,10 @@ function readArrayFromLocalStorage(keyName) {
     return JSON.parse(localStorage.getItem(keyName))
 }
 
+function readArrayFromSessionStorage(keyName) {
+    return JSON.parse(sessionStorage.getItem(keyName))
+}
+
 function actDatos() {
     var array = readArrayFromLocalStorage("lAddResultArray")
     var myTable = document.getElementById("tabla");
@@ -97,7 +89,7 @@ function actDatos() {
         row.insertCell(4).innerHTML = array[i].ubicacion;
         row.insertCell(5).innerHTML = array[i].fecha;
         row.insertCell(6).innerHTML = array[i].tiempo;
-        row.insertCell(7).innerHTML = "<button onclick='aceptarElementByIndex(" + i + ")'>Aceptar</button>";
+        row.insertCell(7).innerHTML = "<button onclick='aceptarAlquiler(" + i + ")'>Aceptar</button>";
         row.insertCell(8).innerHTML = "<button onclick='rechazarAlquiler(" + i + ")'>Rechazar</button>";
         array[i].estado = "Recibido"
 

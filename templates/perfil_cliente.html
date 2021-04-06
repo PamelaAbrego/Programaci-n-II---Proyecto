@@ -12,10 +12,11 @@
     <h2>Usuario:</h2>
     <h1 id="user_cliente"></h1>
     <br>
+    <h2>Correo:</h2>
+    <h1 id="email_cliente"></h1>
     <br>
+    <a href="{{url_for('home')}}">página principal</a>
     <h1>Alquileres</h1>
-
-    <h5>SOLO SE DEBEN MOSTRAR LOS ALQUIELERES QUE CONICIDAN CON EL LOGIN</h5>
 
     <table id="tabla" class="admintbl" name="Registros">
         <tr>
@@ -29,8 +30,6 @@
             <th>Estado</th>
         </tr>
     </table>
-
-    <button onclick="actDatos()">Actualizar datos</button>
     <script src="{{url_for('static', filename='script_perfil_cliente.js')}}"></script>
 </body>
 
