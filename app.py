@@ -17,9 +17,19 @@ def perfil_cliente():
     return render_template("perfil_cliente.html")
 
 
+@app.route("/perfil_admin")
+def perfil_admin():
+    return render_template("perfil_admin.html")
+
+
 @app.route("/login")
 def login():
     return render_template("login.html")
+
+
+@app.route("/registro")
+def registro():
+    return render_template("registro.html")
 
 
 @app.route("/gruas")

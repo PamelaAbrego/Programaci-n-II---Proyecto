@@ -1,6 +1,14 @@
+window.onload = datos;
+
 function readArrayFromLocalStorage(keyName) {
     return JSON.parse(localStorage.getItem(keyName))
 }
+
+function datos() {
+    var perfilActual = readArrayFromLocalStorage("perfilActual");
+    document.getElementById("user_cliente").innerHTML = perfilActual.user;
+}
+
 
 function registrosRecibidos() {
     var arrayRecibidos = readArrayFromLocalStorage("RegistrosRecibidos");

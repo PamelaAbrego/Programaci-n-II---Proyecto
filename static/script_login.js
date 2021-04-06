@@ -16,21 +16,26 @@ var backBoxRegister = document.querySelector(".backBoxRegister");
 function checkLogin() {
     var user = document.getElementById("user").value;
     var password = document.getElementById("passw").value;
-    var userArray = JSON.parse(sessionStorage.getItem("wUserArray"));
+    var userArray = JSON.parse(localStorage.getItem("wUserArray"));
     // alert("in form ->" + user);
     // alert("in session ->" + userArray[0].user)
     //obtener el usuario
     if (user !== null && user !== "") {
         if (password !== null && password !== "") {
-
             var canLogin = checkLoginInfo(user, password, userArray);
             if (canLogin === true) {
-                alert("esta bien")
-                window.location.href = "";
+                var role = checkRole(user, password, userArray);
+                perfilActual(user, password, role);
+                if (role === "Cliente") {
+                    window.location = "http://127.0.0.1:5000/perfil_cliente";
+                    alert("Bienvenido")
+                }
+                if (role === "Administrador") {
+                    location.href = "http://localhost:5000/perfil_admin"
+                }
             } else {
                 alert("user or password are not correct")
             }
-
         } else {
             alert("password must not be empty");
         }
@@ -39,43 +44,51 @@ function checkLogin() {
     }
 }
 
+//función que coloca en el local storage el perfil actual
+function perfilActual(user, password, role) {
+    if (localStorage.getItem("perfilActual") !== null) {
+        localStorage.removeItem("perfilActual");
+    }
+
+    var current_reg = {
+        user: user,
+        password: password,
+        role: role
+    };
+
+    perfilActual = current_reg;
+    localStorage.setItem("perfilActual", JSON.stringify(perfilActual));
+}
+
+
+// función que revisa si es administrador o cliente
+function checkRole(user, password, userArray) {
+    for (var i = 0; i < userArray.length; i++) {
+        if (userArray[i].user === user && userArray[i].password === password) {
+            return userArray[i].role;
+        }
+    }
+}
 //funcion que guarda valores en el arreglo
 function registerNewUser() {
     var reg_user = document.getElementById("user_Reg").value;
     var reg_password = document.getElementById("passw_Reg").value;
-
+    var reg_role = document.getElementById("role").value;
 
     var userArray = [];
 
-    if (sessionStorage.getItem("wUserArray") !== null) {
-        userArray = JSON.parse(sessionStorage.getItem("wUserArray"));
+    if (localStorage.getItem("wUserArray") !== null) {
+        userArray = JSON.parse(localStorage.getItem("wUserArray"));
     }
 
     var current_reg = {
         user: reg_user,
         password: reg_password,
-
+        role: reg_role
     };
 
     userArray.push(current_reg);
-    sessionStorage.setItem("wUserArray", JSON.stringify(userArray));
-
-    var userArrayEmpresas = [];
-
-    if (sessionStorage.getItem("wUserArray") !== null && document.getElementById("type") == "empresa") {
-        userArray = JSON.parse(sessionStorage.getItem("wUserArray"));
-    }
-
-    var current_reg = {
-        user: reg_user,
-        password: reg_password,
-
-    };
-
-    userArray.push(current_reg);
-    sessionStorage.setItem("wUserArray", JSON.stringify(userArray));
-
-
+    localStorage.setItem("wUserArray", JSON.stringify(userArray));
 }
 
 //funcion para encontrar ususarios en el arreglo

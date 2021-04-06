@@ -1,5 +1,20 @@
+window.onload = datos;
+
+function readArrayFromLocalStorage(keyName) {
+    return JSON.parse(localStorage.getItem(keyName))
+}
+
+function datos() {
+    var perfilActual = readArrayFromLocalStorage("perfilActual");
+    document.getElementById("user_admin").innerHTML = perfilActual.user;
+}
+
 function enviado() {
     document.getElementById("resultado_enviar").innerHTML = "Formluario enviado";
+}
+
+function ir_form() {
+    window.location = "http://localhost:5000/form_gruas"
 }
 
 function add() {
@@ -82,6 +97,8 @@ function actDatos() {
         row.insertCell(4).innerHTML = array[i].ubicacion;
         row.insertCell(5).innerHTML = array[i].fecha;
         row.insertCell(6).innerHTML = array[i].tiempo;
+        row.insertCell(7).innerHTML = "<button onclick='aceptarElementByIndex(" + i + ")'>Aceptar</button>";
+        row.insertCell(8).innerHTML = "<button onclick='rechazarAlquiler(" + i + ")'>Rechazar</button>";
         array[i].estado = "Recibido"
 
         addResultToStorageRegistrosRecibidos(array[i].user, array[i].email, array[i].modelo, array[i].cantidad, array[i].ubicacion, array[i].fecha, array[i].tiempo)
