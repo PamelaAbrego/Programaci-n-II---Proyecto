@@ -27,11 +27,11 @@ function checkLogin() {
                 var role = checkRole(user, password, userArray);
                 perfilActual(user, password, role);
                 if (role === "Cliente") {
-                    window.location = "http://127.0.0.1:5000/perfil_cliente";
+                    window.location = "https://comsedi.herokuapp.com/perfil_cliente";
                     alert("Bienvenido")
                 }
                 if (role === "Administrador") {
-                    location.href = "http://localhost:5000/perfil_admin"
+                    location.href = "https://comsedi.herokuapp.com/perfil_admin"
                 }
             } else {
                 alert("user or password are not correct")
