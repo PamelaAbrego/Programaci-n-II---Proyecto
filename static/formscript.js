@@ -5,12 +5,18 @@ function Prueba() {
     var month = d.getMonth() + 1;
 
     if (month >= 10) {
+        if (day < 10) {
+            day = "0" + day.toString();
+        }
         var fecha = year.toString() + "-" + month + "-" + day.toString();
         document.getElementById("datemin").setAttribute("min", fecha);
         document.getElementById("datef").setAttribute("min", fecha);
     }
 
     else {
+        if (day < 10) {
+            day = "0" + day.toString();
+        }
         var fecha = year.toString() + "-0" + month + "-" + day.toString();
         document.getElementById("datemin").setAttribute("min", fecha);
         document.getElementById("datef").setAttribute("min", fecha);
@@ -117,6 +123,19 @@ function checkNumero() {
 
 }
 
+function checkDescription() {
+    var txt = document.getElementById("detalles");
+    if (txt.value == " " || txt.value.length == 0) {
+        document.getElementById("sDesc").innerHTML = "Este campo es obligatorio";
+        return 1;
+    }
+    else {
+        document.getElementById("sDesc").innerHTML = "";
+        return 0;
+    }
+
+}
+
 function comprobarDatos() {
     var cot = checkInputCheckBox();
     var cli = checkRadio();
@@ -124,16 +143,14 @@ function comprobarDatos() {
     var nom = checkNombre();
     var cor = checkCorreo();
     var num = checkNumero();
-    var suma = cot + cli + ubi + nom + cor + num;
+    var desc = checkDescription();
+    var suma = cot + cli + ubi + nom + cor + num + desc;
     if (suma == 0) {
         alert("Tu formulario de cotización se ha enviado correctamente.");
         alert("COMSEDI se contactará contigo en las próximas 48 horas.");
         leerDatos();
+        window.location.href = '/';
     }
-    //else {
-    //alert("Falta algún dato");
-
-    //}
 }
 
 function leerDatos() {
@@ -181,15 +198,14 @@ function leerDatos() {
         med = "pm";
     }
 
+
     var min = d1.getMinutes()
 
-    if (month1 >= 10) {
-        var fecha3 = year1.toString() + "-" + month1 + "-" + day1.toString() + "//" + hour1.toString() + ":" + min.toString() + " " + med;
+    if (min < 10) {
+        min = "0" + min.toString();
     }
 
-    else {
-        var fecha3 = year1.toString() + "-0" + month1 + "-" + day1.toString() + "//" + hour1.toString() + ":" + min.toString() + " " + med;
-    }
+    var fecha3 = year1.toString() + "-" + month1 + "-" + day1.toString() + " // " + hour1.toString() + ":" + min.toString() + " " + med;
 
     AddResult(fecha3, tipo, cliente, nombre, correo, numero, fecha1, fecha2, ubicacion, descripcion);
 }
@@ -244,18 +260,17 @@ function loadAddDataFromAllUsers() {
         row.insertCell(9).innerHTML = addResult.desc;
         row.insertCell(10).innerHTML = "<button onclick='deleteElementByIndex(" + index + ")'>delete</button><input type='hidden' id='" + index + "'>";
         index++;
-        
+
     }
 }
 
 function deleteElementByIndex(pIndex) {
-    deleteElementFromLocalStorage(pIndex);
-    deleteElementFromTable(pIndex);
-    
-    
+    var comprobacion = confirm("Confirmas elminar esta solicitud de cotización?");
+    if (comprobacion == true) {
+        deleteElementFromLocalStorage(pIndex);
+        deleteElementFromTable(pIndex);
+    }
 }
-
-
 
 function deleteElementFromLocalStorage(pIndex) {
     var addResultArray = JSON.parse(localStorage.getItem("lAddResultArray"));
