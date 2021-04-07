@@ -179,7 +179,6 @@ function comprobarDatos() {
     var suma = modelo + grua + ubicacion + tiempo;
     if (suma == 0) {
         alert("Tu formulario de cotización se ha enviado correctamente.");
-        alert("COMSEDI se contactará contigo en las próximas 48 horas.");
         leerDatos();
         window.location.href = '/';
     }
