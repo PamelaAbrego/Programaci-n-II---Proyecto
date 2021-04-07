@@ -9,6 +9,11 @@ app.config["CORS_HEADERS"] = "Content-Type"
 
 @app.route("/")
 def home():
+    return render_template("index.html")
+
+
+@app.route("/principal")
+def principal():
     return render_template("principal.html")
 
 
@@ -25,6 +30,11 @@ def perfil_admin():
 @app.route("/login")
 def login():
     return render_template("login.html")
+
+
+@app.route("/registro")
+def registro():
+    return render_template("registro.html")
 
 
 @app.route("/gruas")

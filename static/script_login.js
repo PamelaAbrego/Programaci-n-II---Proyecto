@@ -1,3 +1,4 @@
+
 //llamado a elementos para la parte del diseño
 document.getElementById("btn__registrarse").addEventListener("click", register);
 document.getElementById("btn__iniciar-sesion").addEventListener("click", iniciarSesion);
@@ -28,11 +29,12 @@ function checkLogin() {
                 var role = checkRole(user, password, userArray);
                 perfilActual(user, password, email, role);
                 if (role === "Cliente") {
-                    window.location.href = "http://127.0.0.1:5000/perfil_cliente";
+                    window.location.href = "/perfil_cliente";
                     alert("Bienvenido")
                 }
                 if (role === "Administrador") {
-                    location.href = "https://comsedi.herokuapp.com/perfil_admin"
+                    window.location.href = '/perfil_admin'
+                    alert("Bienvenido")
                 }
             } else {
                 alert("El usuario o la contraseña no son correctos.")
@@ -83,7 +85,6 @@ function checkEmail(user, password, userArray) {
 function registerNewUser() {
     var reg_user = document.getElementById("user_Reg").value;
     var reg_password = document.getElementById("passw_Reg").value;
-    var reg_role = document.getElementById("role").value;
     var reg_email = document.getElementById("email").value;
 
     var userArray = [];
@@ -96,7 +97,7 @@ function registerNewUser() {
         user: reg_user,
         password: reg_password,
         email: reg_email,
-        role: reg_role
+        role: "Cliente"
     };
 
     userArray.push(current_reg);
@@ -116,6 +117,7 @@ function checkLoginInfo(user, password, userArray) {
     }
     return false;
 }
+
 //funciones para diseño y anmaciones de la página
 function anchoPagina() {
     if (window.innerWidth > 850) {
@@ -167,3 +169,4 @@ function register() {
     }
 
 }
+
