@@ -17,6 +17,8 @@ function add() {
     addResultToStorage(cliente, email, modelo, cantidad, ubicacion, fecha, tiempo, estado);
 
     enviado();
+
+    comprobarDatos();
 }
 
 function addResultToStorage(cliente, email, modelo, cantidad, ubicacion, fecha, tiempo, estado) {
