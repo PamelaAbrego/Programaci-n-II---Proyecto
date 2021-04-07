@@ -97,3 +97,93 @@ function actDatos() {
     }
 }
 
+function Prueba() {
+    var d = new Date();
+    var year = d.getFullYear();
+    var day = d.getDate();
+    var month = d.getMonth() + 1;
+
+    if (month >= 10) {
+        if (day < 10) {
+            day = "0" + day.toString();
+        }
+        var fecha = year.toString() + "-" + month + "-" + day.toString();
+        document.getElementById("fecha").setAttribute("min", fecha);
+    }
+
+    else {
+        if (day < 10) {
+            day = "0" + day.toString();
+        }
+        var fecha = year.toString() + "-0" + month + "-" + day.toString();
+        document.getElementById("fecha").setAttribute("min", fecha);
+    }
+}
+
+function checkModelo() {
+    var txt = document.getElementById("modelo").value;
+    if (1 <= txt <= 2) {
+        document.getElementById("modelo").innerHTML = "";
+        return 0;
+    }
+    else if (txt > 2 && txt < 1) {
+        document.getElementById("modelo").innerHTML = "Escriba un valor de 1 o 2 en el modelo";
+        return 1;
+    }
+}
+
+function checkGruas() {
+    var txt = document.getElementById("cantidad").value;
+    if (1 <= txt <= 10) {
+        document.getElementById("cantidad").innerHTML = "";
+        return 0;
+    }
+    else if (txt > 10 && txt < 1) {
+        document.getElementById("cantidad").innerHTML = "No se pueden ingresar valores negativos, cero o mayores que 10";
+        return 1;
+    }
+}
+
+function checkUbicacion() {
+    var txt = document.getElementById("ubicacion").value;
+    if (txt === "") {
+        document.getElementById("ubicacion").innerHTML = "Este campo es obligatorio";
+        return 1;
+    }
+    else {
+        document.getElementById("ubicacion").innerHTML = "";
+        return 0;
+    }
+
+}
+
+function checkTiempo() {
+    var txt = document.getElementById("tiempo").value;
+    if (1 <= txt <= 240) {
+        document.getElementById("tiempo").innerHTML = "";
+        return 0;
+    }
+    else if (txt > 240 && txt < 1) {
+        document.getElementById("tiempo").innerHTML = "No se pueden ingresar valores negativos, cero o mayores que 10";
+        return 1;
+    }
+}
+
+function comprobarDatos() {
+    var modelo = checkModelo();
+    var grua = checkGruas();
+    var ubicacion = checkUbicacion();
+    var tiempo = checkTiempo();
+    var suma = modelo + grua + ubicacion + tiempo;
+    if (suma == 0) {
+        alert("Tu formulario de cotización se ha enviado correctamente.");
+        alert("COMSEDI se contactará contigo en las próximas 48 horas.");
+        leerDatos();
+        window.location.href = '/';
+    }
+}
+
+Prueba()
+
+
+
