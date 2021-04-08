@@ -23,16 +23,10 @@
                 <a href="{{url_for('gruas')}}" name=" navbar_a" id="navbar_a">Alquiler de Grúas</a>
                 <a href="{{url_for('cotizaciones')}}" id="navbar_a">Cotización de
                     Proyectos</a>
-                <a href="{{url_for('login')}}">Login</a>
             </div>
 
             <div class="navbar__rigth">
-                <a href="#">
-                    <i class="fa fa-search fa-2x text-blue" aria-hidden="true"></i>
-                </a>
-                <a href="#">
-                    <i class="fa fa-clock-o fa-2x text-blue" aria-hidden="true"></i>
-                </a>
+                <a href="{{url_for('perfil_cliente')}}" id="navbar_a">Mi Perfil</a>
                 <a href="#">
                     <img width="30" src="/static/images/avatar.png" alt="" />
                 </a>
@@ -200,7 +194,7 @@
 
             <div class="sidebar__logout">
                 <i class="fa fa-power-off"></i>
-                <a href="#">Log out</a>
+                <a href="{{url_for('home')}}" onclick="logout()">Log out</a>
             </div>
         </div>
     </div>

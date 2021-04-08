@@ -33,9 +33,19 @@ body{
 }
 
 
-.information{
+.information_cliente{
     color: white;
 }
+
+
+.alquileres{
+    color: white;
+}
+
+.alquileres > h1 {
+    color: gold;
+}
+
 .text-primary-p {
     color: #2107b4;
     font-size: 18px;
@@ -111,11 +121,8 @@ body{
   }
   
   .navbar__right > a {
-    margin-right: 30px;
+    margin-left: 20px;
     text-decoration: none;
-    color: #424242;
-    font-size: 20px;
-    font-weight: bold;
   }
   
   .navbar__right > a > i {

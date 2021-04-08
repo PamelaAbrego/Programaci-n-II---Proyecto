@@ -21,3 +21,7 @@ function toggleVideo() {
     var videom = document.getElementById("navbar_v");
     videom.classList.toggle("active_link");
 }
+
+function logout() {
+    sessionStorage.removeItem("perfilActual")
+}

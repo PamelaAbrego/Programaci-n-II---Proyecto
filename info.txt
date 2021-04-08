@@ -1,0 +1,38 @@
+PROYECTO PROGRAMACIÓN II
+Página Web para COMSEDI S.A. DE C.V.
+
+Index:
+Da la bienvenida y lo dirige al login para iniciar sesión o registrarse.
+
+Login y Registro:
+-Login: Permite ingresar al perfil si ya existe una cuenta registrada.
+-Registro: Permite registrar una nueva cuenta. Luego debe realizar el login.
+
+Roles:
+-Cliente: Un cliente se puede registrar. Ya hay clientes precargados.
+-Administrador: Un administrador no se puede registrar. Ya hay administradores precargados.
+
+Información: 
+- Página Principal: Se presenta una descripción de la empresa, las empresas que han contratados los servicios,
+los valores de la empresa y los servicios que posee.
+-Misión y Visión.
+-Capacitaciones.
+-Proyectos.
+-Contactos.
+
+Servicios: 
+-Alquileres de Grúas: 
+    -Cliente:
+        -Puede llenar un form para crear un registro.
+        -Desde su perfil puede ver sus registros actuales y sus estados:
+            -Enviado
+            -Recibido
+            -Aprobado
+            -Rechazado
+    -Administrador:
+        -Puede ver los registros actuales.
+        -Puede aceptarlos.
+        -Puede rechazarlos.
+
+-Cotizaciones:
+
