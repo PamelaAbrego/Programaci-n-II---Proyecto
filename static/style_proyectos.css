@@ -28,7 +28,10 @@
 body{
     box-sizing: border-box;
     font-family: "Lato", sans-serif;
-    background-color: #063b5c;
+    background-color: #19065c;
+}
+.maintittle{
+  
 }
 
 .projects{
