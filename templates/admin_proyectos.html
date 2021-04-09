@@ -6,19 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form</title>
     <style>
-    table {
-        font-size:12px;
-    }
+        table {
+            font-size: 12px;
+        }
     </style>
 </head>
 
 <body>
 
-<h1> Tabla de cotizaciones </h1>
+    <h1> Tabla de cotizaciones </h1>
 
-<p> Estas son las cotizaciones pendientes: </p>
+    <p> Estas son las cotizaciones pendientes: </p>
 
-<table id="userTableClient" style="width:90%" border="1">
+    <table id="userTableClient" style="width:90%" border="1">
         <tr>
             <th> Fecha cotización </th>
             <th> Tipo de cotización</th>
@@ -31,9 +31,10 @@
             <th> Ubicación proyecto </th>
             <th> Descripción proyecto </th>
         </tr>
-</table>
-<body onload="loadAddDataFromAllUsers()">
+    </table>
 
-<script src="{{url_for('static', filename='formscript.js')}}"></script>   
-</body>
+    <body onload="loadAddDataFromAllUsers()">
+        <script src="{{url_for('static', filename='script_admin_cot.js')}}"></script>
+    </body>
+
 </html>

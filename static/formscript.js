@@ -206,7 +206,8 @@ function AddResult(date3, type, client, name, mail, number, date1, date2, locati
         fec2: date2,
         ubi: location,
         desc: description,
-        user: userAct
+        user: userAct,
+        estado: "Enviado"
     }
 
     AddResultArrayPro.push(current_add_resultPro);

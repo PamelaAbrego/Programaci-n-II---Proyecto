@@ -9,6 +9,8 @@
 </head>
 
 <body>
+  <h1>Tabla de Alquileres</h1>
+  <p>A continuación se presentan los alquileres activos:</p>
   <table id="tabla" class="admintbl" name="Registros" style="width:90%" border="1">
     <tr>
       <th>Cliente</th>
@@ -20,8 +22,7 @@
       <th>Tiempo requerido</th>
     </tr>
   </table><br>
-  <button onclick="actDatos()">Actualizar datos</button>
-  <script src="{{url_for('static', filename='script_form_gruas.js')}}"></script>
+  <script src="{{url_for('static', filename='script_admin.js')}}"></script>
 </body>
 
 </html>

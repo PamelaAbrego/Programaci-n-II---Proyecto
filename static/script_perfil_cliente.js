@@ -20,21 +20,6 @@ function datos() {
     document.getElementById("email_cliente").innerHTML = perfilActual.email;
 }
 
-function buscarRecibidos() {
-    var arrayRecibidos = readArrayFromLocalStorage("RegistrosRecibidos");
-    var array = readArrayFromLocalStorage("lAddResultArray");
-    var recibidos = []
-    if (arrayRecibidos !== null) {
-        for (var j = 1; j < array.length; j++) {
-            for (var i = 0; i < arrayRecibidos.length; i++) {
-                if ((arrayRecibidos[i].user == array[j].user) && (arrayRecibidos[i].email == array[j].email) && (arrayRecibidos[i].modelo == array[j].modelo) && (arrayRecibidos[i].cantidad == array[j].cantidad) && (arrayRecibidos[i].ubicacion == array[j].ubicacion) && (arrayRecibidos[i].fecha == array[j].fecha) && (arrayRecibidos[i].tiempo == array[j].tiempo)) {
-                    recibidos.push(arrayRecibidos[i])
-                }
-            }
-        }
-    }
-    return recibidos
-}
 
 function registrosRecibidos() {
     var recibidos = readArrayFromLocalStorage("RegistrosRecibidos");
@@ -60,7 +45,6 @@ function registrosRecibidos() {
 
 function cargarDatos() {
     var array = readArrayFromLocalStorage("lAddResultArray");
-    var recibidos = readArrayFromLocalStorage("RegistrosRecibidos");
     var myTable = document.getElementById("tabla");
     var numeroAlquileres = 0;
     if (array !== null) {
@@ -109,5 +93,29 @@ function cargarDatosTablaProy() {
     if (numeroAlquileres === 0) {
         document.getElementById("result_cotizaciones").innerHTML = "No se han realizado peticiones de cotizaciones."
     }
+    registrosRecibidosCot();
 }
 
+
+function registrosRecibidosCot() {
+    var recibidos = readArrayFromLocalStorage("RegistrosRecibidosCot");
+    var myTable = document.getElementById("tablaProy");
+    var numRows = myTable.getElementsByTagName('tr').length - 1
+    if (recibidos !== null) {
+        for (var i = 1; i <= numRows; i++) {
+            fec3 = myTable.rows.item(i).cells.item(0).innerHTML
+            tip = myTable.rows.item(i).cells.item(1).innerHTML
+            nom = myTable.rows.item(i).cells.item(2).innerHTML
+            cor = myTable.rows.item(i).cells.item(3).innerHTML
+            num = myTable.rows.item(i).cells.item(4).innerHTML
+            fec1 = myTable.rows.item(i).cells.item(5).innerHTML
+            fec2 = myTable.rows.item(i).cells.item(6).innerHTML
+            ubi = myTable.rows.item(i).cells.item(7).innerHTML
+            for (var j = 0; j < recibidos.length; j++) {
+                if (fec3 === recibidos[j].fec3 && tip === recibidos[j].tip && nom === recibidos[j].nom && cor === recibidos[j].cor && num === recibidos[j].num && fec1 === recibidos[j].fec1 && fec2 === recibidos[j].fec2 && ubi === recibidos[j].ubi) {
+                    myTable.rows.item(i).cells.item(8).innerHTML = "Recibido";
+                }
+            }
+        }
+    }
+}
