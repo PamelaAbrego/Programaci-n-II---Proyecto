@@ -4,13 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='style_index.css')}}">
     <title>COMSEDI</title>
 </head>
 
-<body>
-    <h1>COMSEDI</h1>
-    <a href="{{url_for('login')}}">Login</a>
-
+<body bgcolor="#00004D">
+    <div class="box">
+        <div class="main_title">
+            <h1>COMSEDI S.A. DE C.V.</h1>
+            <h2>COMPAÑÍA DE SERVICIO DIVERSOS</h2>
+            <a href="{{url_for('login')}}" style="color: white;">Login</a>
+        </div>
+    </div>
     <script src="{{url_for('static', filename='cargar_Usuarios.js')}}"></script>
 </body>
 

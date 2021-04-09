@@ -22,6 +22,11 @@ def contacto():
     return render_template("contacto.html")
 
 
+@app.route("/capacitaciones")
+def capacitaciones():
+    return render_template("capacitaciones.html")
+
+
 @app.route("/perfil_cliente")
 def perfil_cliente():
     return render_template("perfil_cliente.html")
