@@ -31,6 +31,9 @@ body{
     background-color: #19065c;
 }
 .maintittle{
+    color: rgb(255, 255, 255);
+    font-size: larger;
+    font-weight: bolder;
   
 }
 
@@ -46,6 +49,11 @@ body{
     font-weight:400;
 }
 
+.projects > div > img {
+  width: 200px;
+  object-position: left;
+  object-fit: contain;
+}
 /*
 
   .container {
