@@ -146,10 +146,10 @@ function comprobarDatos() {
     var desc = checkDescription();
     var suma = cot + cli + ubi + nom + cor + num + desc;
     if (suma == 0) {
+        leerDatos();
         alert("Tu formulario de cotización se ha enviado correctamente.");
         alert("COMSEDI se contactará contigo en las próximas 48 horas.");
-        leerDatos();
-        window.location.href = '/';
+        window.location.href = '/principal';
     }
 }
 
@@ -207,18 +207,23 @@ function leerDatos() {
 
     var fecha3 = year1.toString() + "-" + month1 + "-" + day1.toString() + " // " + hour1.toString() + ":" + min.toString() + " " + med;
 
-    AddResult(fecha3, tipo, cliente, nombre, correo, numero, fecha1, fecha2, ubicacion, descripcion);
+    var perfilActual = readArrayFromSessionStorage("perfilActual");
+    var cliente1 = perfilActual.user;
+
+
+
+    AddResult(fecha3, tipo, cliente, nombre, correo, numero, fecha1, fecha2, ubicacion, descripcion, cliente1);
 }
 
 
-function AddResult(date3, type, client, name, mail, number, date1, date2, location, description) {
-    var AddResultArray = [];
+function AddResult(date3, type, client, name, mail, number, date1, date2, location, description, userAct) {
+    var AddResultArrayPro = [];
 
-    if (localStorage.getItem("lAddResultArray") !== null) {
-        AddResultArray = JSON.parse(localStorage.getItem("lAddResultArray"));
+    if (localStorage.getItem("lAddResultArrayPro") !== null) {
+        AddResultArrayPro = JSON.parse(localStorage.getItem("lAddResultArrayPro"));
     }
 
-    var current_add_result = {
+    var current_add_resultPro = {
         fec3: date3,
         tip: type,
         cli: client,
@@ -229,23 +234,24 @@ function AddResult(date3, type, client, name, mail, number, date1, date2, locati
         fec2: date2,
         ubi: location,
         desc: description,
+        user: userAct
     }
 
-    AddResultArray.push(current_add_result);
-    localStorage.setItem("lAddResultArray", JSON.stringify(AddResultArray));
+    AddResultArrayPro.push(current_add_resultPro);
+    localStorage.setItem("lAddResultArrayPro", JSON.stringify(AddResultArrayPro));
 }
 
 function loadAddDataFromAllUsers() {
-    var addResultArray;
-    if (localStorage.getItem("lAddResultArray") !== null) {
-        addResultArray = JSON.parse(localStorage.getItem("lAddResultArray"));
+    var addResultArrayPro;
+    if (localStorage.getItem("lAddResultArrayPro") !== null) {
+        addResultArrayPro = JSON.parse(localStorage.getItem("lAddResultArrayPro"));
     }
 
     var userTableClient = document.getElementById("userTableClient");
     var row;
     var index = 0;
 
-    for (var addResult of addResultArray) {
+    for (var addResult of addResultArrayPro) {
         row = userTableClient.insertRow(1)
 
         row.insertCell(0).innerHTML = addResult.fec3;
@@ -273,9 +279,9 @@ function deleteElementByIndex(pIndex) {
 }
 
 function deleteElementFromLocalStorage(pIndex) {
-    var addResultArray = JSON.parse(localStorage.getItem("lAddResultArray"));
-    addResultArray.splice(pIndex, 1);
-    localStorage.setItem("lAddResultArray", JSON.stringify(addResultArray));
+    var addResultArrayPro = JSON.parse(localStorage.getItem("lAddResultArrayPro"));
+    addResultArrayPro.splice(pIndex, 1);
+    localStorage.setItem("lAddResultArrayPro", JSON.stringify(addResultArrayPro));
 }
 
 function deleteElementFromTable(pIndex) {
@@ -283,6 +289,15 @@ function deleteElementFromTable(pIndex) {
     var parent = getElementParent(element, 3);
     var child = getElementParent(element, 2);
     parent.removeChild(child);
+}
+
+
+function readArrayFromSessionStorage(keyName) {
+    return JSON.parse(sessionStorage.getItem(keyName))
+}
+
+function readArrayFromLocalStorage(keyName) {
+    return JSON.parse(localStorage.getItem(keyName))
 }
 
 Prueba()
