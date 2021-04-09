@@ -30,7 +30,52 @@ body{
     font-family: "Lato", sans-serif;
     background-color: #19065c;
 }
-.chart_tittle{
+
+.tittle{
+    color: aliceblue;
+    font-size: larger;
+    position: relative;
+}
+
+.name{
+    color: rgb(146, 185, 220);
+    font-size: large;
+    font-weight: bolder;
+    position:absolute;
+}
+
+.nameinfo{
+    color: #d8d8d8;
     font-size: medium;
-    
+    font-weight: lighter;
+    position: relative;
+}
+
+.chart_title > i {
+    color: #04024d;
+    font-size: 20px;
+    background: gold;
+    border-radius: 200px 0px 200px 200px;
+    -moz-border-radius: 200px 0px 200px 200px;
+    -webkit-border-radius: 200px 0px 200px 200px;
+    border: 0px solid #000000;
+    padding: 15px;
+  }
+
+  .chart_info > i {
+    color: #04024d;
+    font-size: 20px;
+    background: gold;
+    border-radius: 200px 0px 200px 200px;
+    -moz-border-radius: 200px 0px 200px 200px;
+    -webkit-border-radius: 200px 0px 200px 200px;
+    border: 0px solid #000000;
+    padding: 15px;
+  }
+
+.chart_tittle{
+    color: #f6ff4b;
+    font-size: medium;
+    font-weight: lighter;
+
 }
