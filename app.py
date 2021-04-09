@@ -17,6 +17,11 @@ def principal():
     return render_template("principal.html")
 
 
+@app.route("/contacto")
+def contacto():
+    return render_template("contacto.html")
+
+
 @app.route("/perfil_cliente")
 def perfil_cliente():
     return render_template("perfil_cliente.html")
