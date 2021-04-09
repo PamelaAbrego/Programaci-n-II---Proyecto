@@ -33,8 +33,15 @@ body{
 }
 
 
-.information{
+.information_cliente{
     color: white;
+}
+
+.datos_usuario {
+    font-size: large;
+}
+.datos_usuario > img {
+    float: left;
 }
 .text-primary-p {
     color: #2107b4;

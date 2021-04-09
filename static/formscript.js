@@ -78,33 +78,6 @@ function checkUbicacion() {
 
 }
 
-function checkNombre() {
-    var txt = document.getElementById("fname").value;
-    if (txt === "") {
-        document.getElementById("sName").innerHTML = "Este campo es obligatorio";
-        return 1;
-
-    }
-    else {
-        document.getElementById("sName").innerHTML = "";
-        return 0;
-
-    }
-}
-
-function checkCorreo() {
-    var txt = document.getElementById("fmail").value;
-    if (txt === "") {
-        document.getElementById("sMail").innerHTML = "Este campo es obligatorio";
-        return 1;
-
-    }
-    else {
-        document.getElementById("sMail").innerHTML = "";
-        return 0;
-    }
-
-}
 
 function checkNumero() {
     var txt = document.getElementById("fphone").value;
@@ -140,21 +113,20 @@ function comprobarDatos() {
     var cot = checkInputCheckBox();
     var cli = checkRadio();
     var ubi = checkUbicacion();
-    var nom = checkNombre();
-    var cor = checkCorreo();
     var num = checkNumero();
     var desc = checkDescription();
-    var suma = cot + cli + ubi + nom + cor + num + desc;
+    var suma = cot + cli + ubi + num + desc;
     if (suma == 0) {
         leerDatos();
-        alert("Tu formulario de cotización se ha enviado correctamente.");
-        alert("COMSEDI se contactará contigo en las próximas 48 horas.");
+        alert("Tu formulario de cotización se ha enviado correctamente. COMSEDI se contactará contigo en las próximas 48 horas.");
         window.location.href = '/principal';
     }
 }
 
 function leerDatos() {
     var servicioArray = document.getElementsByName("Coti");
+    var perfilActual = readArrayFromSessionStorage("perfilActual");
+
     var tipo = "";
     var length = servicioArray.length;
     for (var i = 0; i < length; i++) {
@@ -170,8 +142,8 @@ function leerDatos() {
             break;
         }
     }
-    var nombre = document.getElementById('fname').value;
-    var correo = document.getElementById('fmail').value;
+    var nombre = perfilActual.user;
+    var correo = perfilActual.email;
     var numero = document.getElementById('fphone').value;
     var fecha1 = document.getElementById('datemin').value;
     var fecha2 = document.getElementById('datef').value;

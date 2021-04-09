@@ -80,7 +80,7 @@ function cargarDatos() {
         }
     }
     if (numeroAlquileres === 0) {
-        alert("No has realizado peticiones de alquiler")
+        document.getElementById("result_alquileres").innerHTML = "No se han realizado peticiones de alquiler."
     }
     registrosRecibidos();
 }
@@ -107,7 +107,7 @@ function cargarDatosTablaProy() {
         }
     }
     if (numeroAlquileres === 0) {
-        alert("No has realizado ninguna solicitud de cotización")
+        document.getElementById("result_cotizaciones").innerHTML = "No se han realizado peticiones de cotizaciones."
     }
 }
 
