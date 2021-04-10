@@ -25,14 +25,25 @@ Servicios:
     -Cliente:
         -Puede llenar un form para crear un registro.
         -Desde su perfil puede ver sus registros actuales y sus estados:
-            -Enviado
-            -Recibido
-            -Aprobado
-            -Rechazado
+            -Enviado (TERMINADO)
+            -Recibido (TERMINADO)
+            -Aprobado (Pendiente por ir unido al script del administrador)
+            -Rechazado (Pendiente por ir unido al script del administrador)
     -Administrador:
-        -Puede ver los registros actuales.
-        -Puede aceptarlos.
-        -Puede rechazarlos.
+        -Puede ver los registros actuales. (TERMINADO)
+        -Puede aceptarlos. (Pendiente)
+        -Puede rechazarlos. (Pendiente)
 
 -Cotizaciones:
+    -Cliente:
+        -Puede llenar un form para crear un registro.
+        -Desde su perfil puede ver sus registros actuales y sus estados:
+            -Enviado (TERMINADO)
+            -Recibido (TERMINADO)
+            -Aprobado (Pendiente por ir unido al script del administrador)
+            -Rechazado (Pendiente por ir unido al script del administrador)
+    -Administrador:
+        -Puede ver los registros actuales. (TERMINADO)
+        -Puede aceptarlos. (Pendiente)
+        -Puede rechazarlos. (Pendiente)
 
