@@ -26,7 +26,7 @@ Servicios:
         -Puede llenar un form para crear un registro.
         -Desde su perfil puede ver sus registros actuales y sus estados:
             -Enviado (TERMINADO)
-            -Recibido (TERMINADO)
+            -Recibido (TERMINADO) (Si se abre prueba de administrador y se recibe, al dar refresh en el perfil se actualiza el estado)
             -Aprobado (Pendiente por ir unido al script del administrador)
             -Rechazado (Pendiente por ir unido al script del administrador)
     -Administrador:
@@ -39,7 +39,7 @@ Servicios:
         -Puede llenar un form para crear un registro.
         -Desde su perfil puede ver sus registros actuales y sus estados:
             -Enviado (TERMINADO)
-            -Recibido (TERMINADO)
+            -Recibido (TERMINADO) (Si se abre prueba de administrador y se recibe, al dar refresh en el perfil se actualiza el estado)
             -Aprobado (Pendiente por ir unido al script del administrador)
             -Rechazado (Pendiente por ir unido al script del administrador)
     -Administrador:
