@@ -1,2 +1,2 @@
 # COMSEDI S.A. DE C.V.
-# Proyecto Programación II
+Proyecto Programación II
