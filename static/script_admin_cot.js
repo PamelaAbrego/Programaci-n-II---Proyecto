@@ -46,11 +46,11 @@ function loadAddDataFromAllUsers() {
         row.insertCell(7).innerHTML = addResult.fec2;
         row.insertCell(8).innerHTML = addResult.ubi;
         row.insertCell(9).innerHTML = addResult.desc;
-        row.insertCell(10).innerHTML = "<button onclick='aceptar(" + index + ")'>Aceptar</button><input type='hidden' id='" + index + "'>";
-        row.insertCell(11).innerHTML = "<button onclick='rechazar(" + index + ")'>Rechazar</button><input type='hidden' id='" + index + "'>";
+        row.insertCell(10).innerHTML = "<button onclick='aceptarCotizacion(" + index + ")'>Aceptar</button><input type='hidden' id='" + index + "'>";
+        row.insertCell(11).innerHTML = "<button onclick='rechazarCotizacion(" + index + ")'>Rechazar</button><input type='hidden' id='" + index + "'>";
+        row.insertCell(12).innerHTML = "<button onclick='eliminarCotizacion(" + index + ")'>Eliminar</button><input type='hidden' id='" + index + "'>";
         addResultArrayPro[index].estado = "Recibido";
         index++;
-
         addResultToStorageRegistrosRecibidos(addResult.fec3, addResult.tip, addResult.cli, addResult.nom, addResult.cor, addResult.num, addResult.fec1, addResult.fec2, addResult.ubi, addResult.desc)
 
     }
