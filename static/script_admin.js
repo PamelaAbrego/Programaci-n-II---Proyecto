@@ -50,11 +50,42 @@ function actDatos() {
         row.insertCell(6).innerHTML = array[i].tiempo;
         row.insertCell(7).innerHTML = "<button onclick='aceptarAlquiler(" + i + ")'>Aceptar</button>";
         row.insertCell(8).innerHTML = "<button onclick='rechazarAlquiler(" + i + ")'>Rechazar</button>";
-        row.insertCell(9).innerHTML = "<button onclick='rechazarAlquiler(" + i + ")'>Eliminar</button>";
+        row.insertCell(9).innerHTML = "<button onclick='eliminarAlquiler(" + i + ")'>Eliminar</button>";
         array[i].estado = "Recibido"
 
         addResultToStorageRegistrosRecibidos(array[i].user, array[i].email, array[i].modelo, array[i].cantidad, array[i].ubicacion, array[i].fecha, array[i].tiempo)
     }
+}
+
+function aceptarAlquiler(i) {
+    var myTable = document.getElementById("tabla");
+    var j = myTable.getElementsByTagName('tr').length - 1 - i;
+    var row = myTable.rows[j];
+    row.style.backgroundColor = "#86db72";
+
+}
+
+function rechazarAlquiler(i) {
+    var myTable = document.getElementById("tabla");
+    var j = myTable.getElementsByTagName('tr').length - 1 - i;
+    var row = myTable.rows[j];
+    row.style.backgroundColor = "#FF8066";
+
+}
+
+function eliminarAlquiler(i) {
+    var element = document.getElementById(i)
+    var parent = getElementParent(element, 3)
+    var child = getElementParent(element, 2)
+    parent.removeChild(child)
+}
+
+function getElementParent(pElement, pGen) {
+    var parent = pElement
+    for (var i = 0; i < pGen; i++) {
+        parent = parent.parentNode
+    }
+    return parent
 }
 
 
