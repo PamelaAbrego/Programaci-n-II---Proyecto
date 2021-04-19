@@ -15,7 +15,49 @@
     <h2>Email:</h2>
     <h1 id="email_admin"></h1>
     <br>
+    <table id="tabla" class="admintbl" name="Registros" style="width:90%" border="1">
+        <tr>
+            <th>Usuario</th>
+            <th>Contraseña</th>
+            <th>Correo</th>
+            <th>Rol</th>
+        </tr>
+    </table>
     <br>
+    <br>
+
+    <style>
+        .correccion {
+            color: red;
+        }
+    </style>
+
+    <h3>Agregar un Usuario</h3>
+    <br>
+    <label for="">Usuario: </label>
+    <input type="text" id="user">
+    <label for="" id="user_result" class="correccion"></label>
+    <br>
+    <label for="">Contraseña: </label>
+    <input type="text" id="password">
+    <label for="" id="password_result" class="correccion"></label>
+    <br>
+    <label for="">Correo: </label>
+    <input type="text" id="email">
+    <label for="" id="email_result" class="correccion"></label>
+    <br>
+    <label for="">Rol: </label>
+    <br>
+    <input type="radio" id="Cliente" name="Cliente">
+    <label for "ClienteNat"> Cliente </label> <br>
+    <input type="radio" id="Administrador" name="Cliente">
+    <label for "ClienteEmp"> Administrador </label>
+    <br>
+    <label for="" id="role_result" class="correccion"></label>
+    <br>
+    <button onclick="verificarForm()">Agregar Usuario</button>
+    <br>
+    <br><br>
     <a href="{{url_for('admin_gruas')}}">Ver Alquileres</a>
     <br><br>
     <a href="{{url_for('admin_proyectos')}}">Ver Cotizaciones</a>
