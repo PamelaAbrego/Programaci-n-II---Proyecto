@@ -48,8 +48,9 @@ function actDatos() {
         row.insertCell(4).innerHTML = array[i].ubicacion;
         row.insertCell(5).innerHTML = array[i].fecha;
         row.insertCell(6).innerHTML = array[i].tiempo;
-        row.insertCell(7).innerHTML = "<button onclick='aceptarAlquiler(" + i + ")'>Aceptar</button>";
-        row.insertCell(8).innerHTML = "<button onclick='rechazarAlquiler(" + i + ")'>Rechazar</button>";
+        row.insertCell(7).innerHTML = "<button onclick='modificarAlquiler(" + i + ")'>Modificar</button><input type='hidden' id='" + i + "'>";
+        row.insertCell(8).innerHTML = "<button onclick='aceptarAlquiler(" + i + ")'>Aceptar</button>";
+        row.insertCell(9).innerHTML = "<button onclick='rechazarAlquiler(" + i + ")'>Rechazar</button>";
         array[i].estado = "Recibido"
 
         addResultToStorageRegistrosRecibidos(array[i].user, array[i].email, array[i].modelo, array[i].cantidad, array[i].ubicacion, array[i].fecha, array[i].tiempo)
@@ -65,6 +66,7 @@ function aceptarAlquiler(i) {
     row.style.backgroundColor = "#86db72";
     myTable.rows[j].cells[7].colSpan = 3;
     myTable.rows[j].cells[7].innerHTML = "Aceptado";
+    myTable.rows[j].deleteCell(9);
     myTable.rows[j].deleteCell(8);
     alquileresAceptados(i);
 }
@@ -79,6 +81,7 @@ function cargarAceptados() {
             var row = myTable.rows[j];
             row.style.backgroundColor = "#86db72";
             myTable.rows[j].cells[7].innerHTML = "Aceptado";
+            myTable.rows[j].deleteCell(9);
             myTable.rows[j].deleteCell(8);
             myTable.rows[j].cells[7].colSpan = 3;
         }
@@ -92,6 +95,7 @@ function rechazarAlquiler(i) {
     row.style.backgroundColor = "#FF8066";
     myTable.rows[j].cells[7].colSpan = 3;
     myTable.rows[j].cells[7].innerHTML = "Rechazado";
+    myTable.rows[j].deleteCell(9);
     myTable.rows[j].deleteCell(8);
     alquileresRechazados(i);
 }
@@ -107,6 +111,7 @@ function cargarRechazados() {
             row.style.backgroundColor = "#FF8066";
             myTable.rows[j].cells[7].colSpan = 3;
             myTable.rows[j].cells[7].innerHTML = "Rechazado";
+            myTable.rows[j].deleteCell(9);
             myTable.rows[j].deleteCell(8);
             myTable.rows[j].cells[7].colSpan = 3;
         }
@@ -185,4 +190,68 @@ function alquileresRechazados(i) {
 
     addResultArray1.push(current_add_result)
     localStorage.setItem("AlquileresRechazadosRegistros", JSON.stringify(addResultArray1));
+}
+
+function modificarAlquiler(pIndex) {
+    var element = document.getElementById(pIndex)
+    var parent = getElementParent(element, 2)
+    console.log(parent.children)
+    var children = parent.children
+    children[2].innerHTML = "<input type='number' id='modelo" + pIndex + "' min='1' max='2' value='" + children[2].innerText + "'>"
+    children[3].innerHTML = "<input type='number' id='cantidad" + pIndex + "' min='1' max='10' value='" + children[3].innerText + "'>"
+    children[4].innerHTML = "<input type='text' id='ubicacion" + pIndex + "' value='" + children[4].innerText + "'>"
+    children[5].innerHTML = "<input type='date' id='fecha" + pIndex + "' value='" + children[5].innerText + "'>"
+    children[6].innerHTML = "<input type='number' id='tiempo" + pIndex + "' min='1' max='240' value='" + children[6].innerText + "'>"
+    children[7].innerHTML = "<button onclick='modifyOffElementByIndex(" + pIndex + ",1)'>Guardar</button><button onclick='modifyOffElementByIndex(" + pIndex + ",0)'>Regresar</button><input type='hidden' id='" + pIndex + "'>"
+}
+
+function modifyOffElementByIndex(pIndex, pSave) {
+    var addResultArray
+    if (localStorage.getItem("lAddResultArray") !== null) {
+        addResultArray = JSON.parse(localStorage.getItem("lAddResultArray"));
+    }
+
+    var element = document.getElementById(pIndex)
+    var parent = getElementParent(element, 2)
+    var children = parent.children
+
+    if (pSave === 0) {
+        //modify off
+        children[2].innerHTML = addResultArray[pIndex].modelo
+        children[3].innerHTML = addResultArray[pIndex].cantidad
+        children[4].innerHTML = addResultArray[pIndex].ubicacion
+        children[5].innerHTML = addResultArray[pIndex].fecha
+        children[6].innerHTML = addResultArray[pIndex].tiempo
+        children[7].innerHTML = "<button onclick='modificarAlquiler(" + pIndex + ")'>Modificar</button><input type='hidden' id='" + pIndex + "'>";
+    } else {
+        //save
+        var input1 = document.getElementById("modelo" + pIndex).value
+        var input2 = document.getElementById("cantidad" + pIndex).value
+        var input3 = document.getElementById("ubicacion" + pIndex).value
+        var input4 = document.getElementById("fecha" + pIndex).value
+        var input5 = document.getElementById("tiempo" + pIndex).value
+
+        addResultArray[pIndex].modelo = input1
+        addResultArray[pIndex].cantidad = input2
+        addResultArray[pIndex].ubicacion = input3
+        addResultArray[pIndex].fecha = input4
+        addResultArray[pIndex].tiempo = input5
+
+        children[2].innerHTML = input1
+        children[3].innerHTML = input2
+        children[4].innerHTML = input3
+        children[5].innerHTML = input4
+        children[6].innerHTML = input5
+        children[7].innerHTML = "<button onclick='modificarAlquiler(" + pIndex + ")'>Modificar</button><input type='hidden' id='" + pIndex + "'>";
+
+        localStorage.setItem("lAddResultArray", JSON.stringify(addResultArray))
+    }
+}
+
+function getElementParent(pElement, pGen) {
+    var parent = pElement
+    for (var i = 0; i < pGen; i++) {
+        parent = parent.parentNode
+    }
+    return parent
 }
