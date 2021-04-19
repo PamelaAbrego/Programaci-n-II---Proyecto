@@ -55,7 +55,9 @@ function actDatos() {
 
         addResultToStorageRegistrosRecibidos(array[i].user, array[i].email, array[i].modelo, array[i].cantidad, array[i].ubicacion, array[i].fecha, array[i].tiempo)
     }
-    //aceptados();
+    cargarAceptados();
+    cargarRechazados();
+    cargarEliminados();
 }
 
 function aceptarAlquiler(i) {
@@ -63,7 +65,28 @@ function aceptarAlquiler(i) {
     var j = myTable.getElementsByTagName('tr').length - 1 - i;
     var row = myTable.rows[j];
     row.style.backgroundColor = "#86db72";
+    myTable.rows[j].cells[7].colSpan = 3;
+    myTable.rows[j].cells[7].innerHTML = "Aceptado";
+    myTable.rows[j].deleteCell(9);
+    myTable.rows[j].deleteCell(8);
+    alquileresAceptados(i);
+}
 
+function cargarAceptados() {
+    var aceptados = readArrayFromLocalStorage("AlquileresAceptados");
+    if (aceptados !== null) {
+        var myTable = document.getElementById("tabla");
+        for (var k = 0; k < aceptados.length; k++) {
+            var i = aceptados[k].id;
+            var j = myTable.getElementsByTagName('tr').length - 1 - i;
+            var row = myTable.rows[j];
+            row.style.backgroundColor = "#86db72";
+            myTable.rows[j].cells[7].innerHTML = "Aceptado";
+            myTable.rows[j].deleteCell(9);
+            myTable.rows[j].deleteCell(8);
+            myTable.rows[j].cells[7].colSpan = 3;
+        }
+    }
 }
 
 function rechazarAlquiler(i) {
@@ -71,4 +94,91 @@ function rechazarAlquiler(i) {
     var j = myTable.getElementsByTagName('tr').length - 1 - i;
     var row = myTable.rows[j];
     row.style.backgroundColor = "#FF8066";
+    myTable.rows[j].cells[7].colSpan = 3;
+    myTable.rows[j].cells[7].innerHTML = "Rechazado";
+    myTable.rows[j].deleteCell(9);
+    myTable.rows[j].deleteCell(8);
+    alquileresRechazados(i);
+}
+
+function cargarRechazados() {
+    var rechazados = readArrayFromLocalStorage("AlquileresRechazados");
+    if (rechazados !== null) {
+        var myTable = document.getElementById("tabla");
+        for (var k = 0; k < rechazados.length; k++) {
+            var i = rechazados[k].id;
+            var j = myTable.getElementsByTagName('tr').length - 1 - i;
+            var row = myTable.rows[j];
+            row.style.backgroundColor = "#FF8066";
+            myTable.rows[j].cells[7].colSpan = 3;
+            myTable.rows[j].cells[7].innerHTML = "Rechazado";
+            myTable.rows[j].deleteCell(9);
+            myTable.rows[j].deleteCell(8);
+            myTable.rows[j].cells[7].colSpan = 3;
+        }
+    }
+}
+
+function eliminarAlquiler(i) {
+    var myTable = document.getElementById("tabla");
+    var j = myTable.getElementsByTagName('tr').length - 1 - i;
+    myTable.deleteRow(j);
+    alquileresEliminados(i);
+}
+
+function cargarEliminados() {
+    var eliminados = readArrayFromLocalStorage("AlquileresEliminados");
+    if (eliminados !== null) {
+        var myTable = document.getElementById("tabla");
+        for (var k = 0; k < eliminados.length; k++) {
+            var i = eliminados[k].id;
+            var j = myTable.getElementsByTagName('tr').length - 1 - i;
+            myTable.deleteRow(j);
+        }
+    }
+}
+
+function alquileresAceptados(i) {
+    var addResultArray = [];
+
+    if (localStorage.getItem("AlquileresAceptados") !== null) {
+        addResultArray = JSON.parse(localStorage.getItem("AlquileresAceptados"));
+    }
+
+    var current_add_result = {
+        id: i
+    }
+
+    addResultArray.push(current_add_result)
+    localStorage.setItem("AlquileresAceptados", JSON.stringify(addResultArray));
+}
+
+function alquileresRechazados(i) {
+    var addResultArray = [];
+
+    if (localStorage.getItem("AlquileresRechazados") !== null) {
+        addResultArray = JSON.parse(localStorage.getItem("AlquileresRechazados"));
+    }
+
+    var current_add_result = {
+        id: i
+    }
+
+    addResultArray.push(current_add_result)
+    localStorage.setItem("AlquileresRechazados", JSON.stringify(addResultArray));
+}
+
+function alquileresEliminados(i) {
+    var addResultArray = [];
+
+    if (localStorage.getItem("AlquileresEliminados") !== null) {
+        addResultArray = JSON.parse(localStorage.getItem("AlquileresEliminados"));
+    }
+
+    var current_add_result = {
+        id: i
+    }
+
+    addResultArray.push(current_add_result)
+    localStorage.setItem("AlquileresEliminados", JSON.stringify(addResultArray));
 }
