@@ -50,14 +50,14 @@ function actDatos() {
         row.insertCell(6).innerHTML = array[i].tiempo;
         row.insertCell(7).innerHTML = "<button onclick='aceptarAlquiler(" + i + ")'>Aceptar</button>";
         row.insertCell(8).innerHTML = "<button onclick='rechazarAlquiler(" + i + ")'>Rechazar</button>";
-        row.insertCell(9).innerHTML = "<button onclick='eliminarAlquiler(" + i + ")'>Eliminar</button>";
+        //row.insertCell(9).innerHTML = "<button onclick='eliminarAlquiler(" + i + ")'>Eliminar</button>";
         array[i].estado = "Recibido"
 
         addResultToStorageRegistrosRecibidos(array[i].user, array[i].email, array[i].modelo, array[i].cantidad, array[i].ubicacion, array[i].fecha, array[i].tiempo)
     }
     cargarAceptados();
     cargarRechazados();
-    cargarEliminados();
+    //cargarEliminados();
 }
 
 function aceptarAlquiler(i) {
@@ -67,7 +67,7 @@ function aceptarAlquiler(i) {
     row.style.backgroundColor = "#86db72";
     myTable.rows[j].cells[7].colSpan = 3;
     myTable.rows[j].cells[7].innerHTML = "Aceptado";
-    myTable.rows[j].deleteCell(9);
+    //myTable.rows[j].deleteCell(9);
     myTable.rows[j].deleteCell(8);
     alquileresAceptados(i);
 }
@@ -82,7 +82,7 @@ function cargarAceptados() {
             var row = myTable.rows[j];
             row.style.backgroundColor = "#86db72";
             myTable.rows[j].cells[7].innerHTML = "Aceptado";
-            myTable.rows[j].deleteCell(9);
+            //myTable.rows[j].deleteCell(9);
             myTable.rows[j].deleteCell(8);
             myTable.rows[j].cells[7].colSpan = 3;
         }
@@ -96,7 +96,7 @@ function rechazarAlquiler(i) {
     row.style.backgroundColor = "#FF8066";
     myTable.rows[j].cells[7].colSpan = 3;
     myTable.rows[j].cells[7].innerHTML = "Rechazado";
-    myTable.rows[j].deleteCell(9);
+    //myTable.rows[j].deleteCell(9);
     myTable.rows[j].deleteCell(8);
     alquileresRechazados(i);
 }
@@ -112,13 +112,14 @@ function cargarRechazados() {
             row.style.backgroundColor = "#FF8066";
             myTable.rows[j].cells[7].colSpan = 3;
             myTable.rows[j].cells[7].innerHTML = "Rechazado";
-            myTable.rows[j].deleteCell(9);
+            //myTable.rows[j].deleteCell(9);
             myTable.rows[j].deleteCell(8);
             myTable.rows[j].cells[7].colSpan = 3;
         }
     }
 }
 
+/*
 function eliminarAlquiler(i) {
     var myTable = document.getElementById("tabla");
     var j = myTable.getElementsByTagName('tr').length - 1 - i;
@@ -137,7 +138,7 @@ function cargarEliminados() {
         }
     }
 }
-
+*/
 function alquileresAceptados(i) {
     var addResultArray = [];
 
@@ -151,6 +152,29 @@ function alquileresAceptados(i) {
 
     addResultArray.push(current_add_result)
     localStorage.setItem("AlquileresAceptados", JSON.stringify(addResultArray));
+
+
+    var addResultArray1 = [];
+
+    if (localStorage.getItem("AlquileresAceptadosRegistros") !== null) {
+        addResultArray1 = JSON.parse(localStorage.getItem("AlquileresAceptadosRegistros"));
+    }
+    var array = readArrayFromLocalStorage("lAddResultArray");
+
+    var current_add_result = {
+        user: array[i].user,
+        email: array[i].email,
+        modelo: array[i].modelo,
+        cantidad: array[i].cantidad,
+        ubicacion: array[i].ubicacion,
+        fecha: array[i].fecha,
+        tiempo: array[i].tiempo,
+        estado: "Aceptado"
+    }
+
+    addResultArray1.push(current_add_result)
+    localStorage.setItem("AlquileresAceptadosRegistros", JSON.stringify(addResultArray1));
+
 }
 
 function alquileresRechazados(i) {
@@ -166,8 +190,30 @@ function alquileresRechazados(i) {
 
     addResultArray.push(current_add_result)
     localStorage.setItem("AlquileresRechazados", JSON.stringify(addResultArray));
+
+    var addResultArray1 = [];
+
+    if (localStorage.getItem("AlquileresRechazadosRegistros") !== null) {
+        addResultArray1 = JSON.parse(localStorage.getItem("AlquileresRechazadosRegistros"));
+    }
+    var array = readArrayFromLocalStorage("lAddResultArray");
+
+    var current_add_result = {
+        user: array[i].user,
+        email: array[i].email,
+        modelo: array[i].modelo,
+        cantidad: array[i].cantidad,
+        ubicacion: array[i].ubicacion,
+        fecha: array[i].fecha,
+        tiempo: array[i].tiempo,
+        estado: "Rechazado"
+    }
+
+    addResultArray1.push(current_add_result)
+    localStorage.setItem("AlquileresRechazadosRegistros", JSON.stringify(addResultArray1));
 }
 
+/*
 function alquileresEliminados(i) {
     var addResultArray = [];
 
@@ -181,4 +227,26 @@ function alquileresEliminados(i) {
 
     addResultArray.push(current_add_result)
     localStorage.setItem("AlquileresEliminados", JSON.stringify(addResultArray));
+
+    var addResultArray1 = [];
+
+    if (localStorage.getItem("AlquileresEliminadosRegistros") !== null) {
+        addResultArray1 = JSON.parse(localStorage.getItem("AlquileresEliminadosRegistros"));
+    }
+    var array = readArrayFromLocalStorage("lAddResultArray");
+
+    var current_add_result = {
+        user: array[i].user,
+        email: array[i].email,
+        modelo: array[i].modelo,
+        cantidad: array[i].cantidad,
+        ubicacion: array[i].ubicacion,
+        fecha: array[i].fecha,
+        tiempo: array[i].tiempo,
+        estado: "Eliminado"
+    }
+
+    addResultArray1.push(current_add_result)
+    localStorage.setItem("AlquileresEliminadosRegistros", JSON.stringify(addResultArray1));
 }
+*/
