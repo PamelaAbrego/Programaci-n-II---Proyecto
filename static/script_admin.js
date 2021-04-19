@@ -55,6 +55,35 @@ function actDatos() {
 
         addResultToStorageRegistrosRecibidos(array[i].user, array[i].email, array[i].modelo, array[i].cantidad, array[i].ubicacion, array[i].fecha, array[i].tiempo)
     }
+    //aceptados();
 }
 
+function aceptarAlquiler(i) {
+    var myTable = document.getElementById("tabla");
+    var j = myTable.getElementsByTagName('tr').length - 1 - i;
+    var row = myTable.rows[j];
+    row.style.backgroundColor = "#86db72";
+    agregarAceptados(i);
+}
 
+function rechazarAlquiler(i) {
+    var myTable = document.getElementById("tabla");
+    var j = myTable.getElementsByTagName('tr').length - 1 - i;
+    var row = myTable.rows[j];
+    row.style.backgroundColor = "#FF8066";
+}
+
+function agregarAceptados(i) {
+    var addResultArray = [];
+
+    if (localStorage.getItem("aceptados") !== null) {
+        addResultArray = JSON.parse(localStorage.getItem("aceptados"));
+    }
+
+    var current_add_result = {
+        id: i
+    }
+
+    addResultArray.push(current_add_result)
+    localStorage.setItem("aceptados", JSON.stringify(addResultArray));
+}
