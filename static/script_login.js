@@ -165,7 +165,7 @@ function register() {
         formLogin.style.display = "none";
         backBoxRegister.style.display = "none";
         backBoxLogin.style.display = "block";
-        backBoxLogin.style.opacity = "1";
+        backBoxLogin.style.opacity = "0";
     }
 
 }
