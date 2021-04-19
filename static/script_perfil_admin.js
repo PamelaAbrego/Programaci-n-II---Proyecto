@@ -63,7 +63,12 @@ function modificarUsuario(pIndex) {
     var children = parent.children
     children[1].innerHTML = "<input type='text' id='password" + pIndex + "' value='" + children[1].innerText + "'>"
     children[2].innerHTML = "<input type='text' id='email" + pIndex + "' value='" + children[2].innerText + "'>"
-    children[3].innerHTML = "<input type='radio' id='Cliente' name='Cliente'><label for 'ClienteNat'> Cliente </label> <br><input type='radio' id='Administrador' name='Cliente'><label for 'ClienteEmp'> Administrador </label>"
+    if (children[3].innerText === "Cliente") {
+        children[3].innerHTML = "<input type='radio' id='Cliente' name='Cliente' checked><label for 'ClienteNat'> Cliente </label> <br><input type='radio' id='Administrador' name='Cliente'><label for 'ClienteEmp'> Administrador </label>"
+    }
+    if (children[3].innerText === "Administrador") {
+        children[3].innerHTML = "<input type='radio' id='Cliente' name='Cliente'><label for 'ClienteNat'> Cliente </label> <br><input type='radio' id='Administrador' name='Cliente'checked><label for 'ClienteEmp'> Administrador </label>"
+    }
     children[4].innerHTML = "<button onclick='modifyOffElementByIndex(" + pIndex + ",1)'>Guardar</button><button onclick='modifyOffElementByIndex(" + pIndex + ",0)'>Regresar</button><input type='hidden' id='" + pIndex + "'>"
 }
 

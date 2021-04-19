@@ -64,8 +64,21 @@ function modificarCotizacion(pIndex) {
     var parent = getElementParent(element, 2)
     console.log(parent.children)
     var children = parent.children
-    children[1].innerHTML = "<input type='checkbox' id='Eléctrico' name='Coti'><label for 'CotiCivil'> Eléctrico </label> <br><input type='checkbox' id='Civil' name='Coti'><label for 'CotiCivil'> Civil </label> <br><input type='checkbox' id='Poda' name='Coti'><label for 'CotiPoda'> Poda </label>"
-    children[2].innerHTML = "<input type='radio' id='Natural' name='Cliente'><label for 'ClienteNat'> Persona natural </label> <br><input type='radio' id='Empresa' name='Cliente'><label for 'ClienteEmp'> Empresa </label>"
+    if (children[1].innerText === "| Eléctrico") {
+        children[1].innerHTML = "<input type='checkbox' id='Eléctrico' name='Coti' checked><label for 'CotiCivil'> Eléctrico </label> <br><input type='checkbox' id='Civil' name='Coti'><label for 'CotiCivil'> Civil </label> <br><input type='checkbox' id='Poda' name='Coti'><label for 'CotiPoda'> Poda </label>"
+    }
+    if (children[1].innerText === "| Civil") {
+        children[1].innerHTML = "<input type='checkbox' id='Eléctrico' name='Coti'><label for 'CotiCivil'> Eléctrico </label> <br><input type='checkbox' id='Civil' name='Coti' checked><label for 'CotiCivil'> Civil </label> <br><input type='checkbox' id='Poda' name='Coti'><label for 'CotiPoda'> Poda </label>"
+    }
+    if (children[1].innerText === "| Poda") {
+        children[1].innerHTML = "<input type='checkbox' id='Eléctrico' name='Coti'><label for 'CotiCivil'> Eléctrico </label> <br><input type='checkbox' id='Civil' name='Coti'><label for 'CotiCivil'> Civil </label> <br><input type='checkbox' id='Poda' name='Coti' checked><label for 'CotiPoda'> Poda </label>"
+    }
+    if (children[2].innerText === "Natural") {
+        children[2].innerHTML = "<input type='radio' id='Natural' name='Cliente' checked><label for 'ClienteNat'> Persona natural </label> <br><input type='radio' id='Empresa' name='Cliente'><label for 'ClienteEmp'> Empresa </label>"
+    }
+    if (children[2].innerText === "Empresa") {
+        children[2].innerHTML = "<input type='radio' id='Natural' name='Cliente'><label for 'ClienteNat'> Persona natural </label> <br><input type='radio' id='Empresa' name='Cliente' checked><label for 'ClienteEmp'> Empresa </label>"
+    }
     children[5].innerHTML = "<input type='number' id='numero" + pIndex + "' value='" + children[5].innerText + "'>"
     children[6].innerHTML = "<input type='date' id='fecha1" + pIndex + "' value='" + children[6].innerText + "'>"
     children[7].innerHTML = "<input type='date' id='fecha2" + pIndex + "' value='" + children[7].innerText + "'>"
@@ -114,7 +127,7 @@ function modifyOffElementByIndex(pIndex, pSave) {
             }
         }
 
-        var input3 = document.getElementsByName("numero" + pIndex).value
+        var input3 = document.getElementById("numero" + pIndex).value
         var input4 = document.getElementById("fecha1" + pIndex).value
         var input5 = document.getElementById("fecha2" + pIndex).value
         var input6 = document.getElementById("ubicacion" + pIndex).value
