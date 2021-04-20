@@ -46,8 +46,9 @@ function loadAddDataFromAllUsers() {
         row.insertCell(7).innerHTML = addResult.fec2;
         row.insertCell(8).innerHTML = addResult.ubi;
         row.insertCell(9).innerHTML = addResult.desc;
-        row.insertCell(10).innerHTML = "<button onclick='aceptarCotizacion(" + index + ")'>Aceptar</button><input type='hidden' id='" + index + "'>";
-        row.insertCell(11).innerHTML = "<button onclick='rechazarCotizacion(" + index + ")'>Rechazar</button><input type='hidden' id='" + index + "'>";
+        row.insertCell(10).innerHTML = "<button onclick='modificarCotizacion(" + index + ")'>Modificar</button><input type='hidden' id='" + index + "'>";
+        row.insertCell(11).innerHTML = "<button onclick='aceptarCotizacion(" + index + ")'>Aceptar</button><input type='hidden' id='" + index + "'>";
+        row.insertCell(12).innerHTML = "<button onclick='rechazarCotizacion(" + index + ")'>Rechazar</button><input type='hidden' id='" + index + "'>";
         addResultArrayPro[index].estado = "Recibido";
         index++;
         addResultToStorageRegistrosRecibidos(addResult.fec3, addResult.tip, addResult.cli, addResult.nom, addResult.cor, addResult.num, addResult.fec1, addResult.fec2, addResult.ubi, addResult.desc)
@@ -58,6 +59,101 @@ function loadAddDataFromAllUsers() {
 
 }
 
+function modificarCotizacion(pIndex) {
+    var element = document.getElementById(pIndex)
+    var parent = getElementParent(element, 2)
+    console.log(parent.children)
+    var children = parent.children
+    if (children[1].innerText === "| Eléctrico") {
+        children[1].innerHTML = "<input type='checkbox' id='Eléctrico' name='Coti' checked><label for 'CotiCivil'> Eléctrico </label> <br><input type='checkbox' id='Civil' name='Coti'><label for 'CotiCivil'> Civil </label> <br><input type='checkbox' id='Poda' name='Coti'><label for 'CotiPoda'> Poda </label>"
+    }
+    if (children[1].innerText === "| Civil") {
+        children[1].innerHTML = "<input type='checkbox' id='Eléctrico' name='Coti'><label for 'CotiCivil'> Eléctrico </label> <br><input type='checkbox' id='Civil' name='Coti' checked><label for 'CotiCivil'> Civil </label> <br><input type='checkbox' id='Poda' name='Coti'><label for 'CotiPoda'> Poda </label>"
+    }
+    if (children[1].innerText === "| Poda") {
+        children[1].innerHTML = "<input type='checkbox' id='Eléctrico' name='Coti'><label for 'CotiCivil'> Eléctrico </label> <br><input type='checkbox' id='Civil' name='Coti'><label for 'CotiCivil'> Civil </label> <br><input type='checkbox' id='Poda' name='Coti' checked><label for 'CotiPoda'> Poda </label>"
+    }
+    if (children[2].innerText === "Natural") {
+        children[2].innerHTML = "<input type='radio' id='Natural' name='Cliente' checked><label for 'ClienteNat'> Persona natural </label> <br><input type='radio' id='Empresa' name='Cliente'><label for 'ClienteEmp'> Empresa </label>"
+    }
+    if (children[2].innerText === "Empresa") {
+        children[2].innerHTML = "<input type='radio' id='Natural' name='Cliente'><label for 'ClienteNat'> Persona natural </label> <br><input type='radio' id='Empresa' name='Cliente' checked><label for 'ClienteEmp'> Empresa </label>"
+    }
+    children[5].innerHTML = "<input type='number' id='numero" + pIndex + "' value='" + children[5].innerText + "'>"
+    children[6].innerHTML = "<input type='date' id='fecha1" + pIndex + "' value='" + children[6].innerText + "'>"
+    children[7].innerHTML = "<input type='date' id='fecha2" + pIndex + "' value='" + children[7].innerText + "'>"
+    children[8].innerHTML = "<input type='text' id='ubicacion" + pIndex + "' value='" + children[8].innerText + "'>"
+    children[9].innerHTML = "<input type='text' id='descripcion" + pIndex + "' value='" + children[9].innerText + "'>"
+    children[10].innerHTML = "<button onclick='modifyOffElementByIndex(" + pIndex + ",1)'>Guardar</button><button onclick='modifyOffElementByIndex(" + pIndex + ",0)'>Regresar</button><input type='hidden' id='" + pIndex + "'>"
+}
+
+function modifyOffElementByIndex(pIndex, pSave) {
+    var addResultArray
+    if (localStorage.getItem("lAddResultArrayPro") !== null) {
+        addResultArray = JSON.parse(localStorage.getItem("lAddResultArrayPro"));
+    }
+
+    var element = document.getElementById(pIndex)
+    var parent = getElementParent(element, 2)
+    var children = parent.children
+
+    if (pSave === 0) {
+        //modify off
+        children[1].innerHTML = addResultArray[pIndex].tip
+        children[2].innerHTML = addResultArray[pIndex].cli
+        children[5].innerHTML = addResultArray[pIndex].num
+        children[6].innerHTML = addResultArray[pIndex].fec1
+        children[7].innerHTML = addResultArray[pIndex].fec2
+        children[8].innerHTML = addResultArray[pIndex].ubi
+        children[9].innerHTML = addResultArray[pIndex].desc
+        children[10].innerHTML = "<button onclick='modificarCotizacion(" + pIndex + ")'>Modificar</button><input type='hidden' id='" + pIndex + "'>";
+    } else {
+        //save
+        var servicioArray = document.getElementsByName("Coti");
+        var input1 = "";
+        var length = servicioArray.length;
+        for (var i = 0; i < length; i++) {
+            if (servicioArray[i].checked) {
+                input1 += " | " + servicioArray[i].id;
+            }
+        }
+
+        var radios = document.getElementsByName('Cliente');
+        var input2 = "";
+        for (var n = 0, length = radios.length; n < length; n++) {
+            if (radios[n].checked) {
+                input2 = radios[n].id;
+                break;
+            }
+        }
+
+        var input3 = document.getElementById("numero" + pIndex).value
+        var input4 = document.getElementById("fecha1" + pIndex).value
+        var input5 = document.getElementById("fecha2" + pIndex).value
+        var input6 = document.getElementById("ubicacion" + pIndex).value
+        var input7 = document.getElementById("descripcion" + pIndex).value
+
+        addResultArray[pIndex].tip = input1
+        addResultArray[pIndex].cli = input2
+        addResultArray[pIndex].num = input3
+        addResultArray[pIndex].fec1 = input4
+        addResultArray[pIndex].fec2 = input5
+        addResultArray[pIndex].ubi = input6
+        addResultArray[pIndex].desc = input7
+
+        children[1].innerHTML = input1
+        children[2].innerHTML = input2
+        children[5].innerHTML = input3
+        children[6].innerHTML = input4
+        children[7].innerHTML = input5
+        children[8].innerHTML = input6
+        children[9].innerHTML = input7
+        children[10].innerHTML = "<button onclick='modificarCotizacion(" + pIndex + ")'>Modificar</button><input type='hidden' id='" + pIndex + "'>";
+
+        localStorage.setItem("lAddResultArrayPro", JSON.stringify(addResultArray))
+    }
+}
+
 function aceptarCotizacion(i) {
     var myTable = document.getElementById("userTableClient");
     var j = myTable.getElementsByTagName('tr').length - 1 - i;
@@ -65,6 +161,7 @@ function aceptarCotizacion(i) {
     row.style.backgroundColor = "#86db72";
     myTable.rows[j].cells[10].colSpan = 3;
     myTable.rows[j].cells[10].innerHTML = "Aceptado";
+    myTable.rows[j].deleteCell(12);
     myTable.rows[j].deleteCell(11);
     cotizacionesAceptadas(i);
 }
@@ -121,6 +218,7 @@ function cargarAceptados() {
             row.style.backgroundColor = "#86db72";
             myTable.rows[j].cells[10].colSpan = 3;
             myTable.rows[j].cells[10].innerHTML = "Aceptado";
+            myTable.rows[j].deleteCell(12);
             myTable.rows[j].deleteCell(11);
         }
     }
@@ -133,6 +231,7 @@ function rechazarCotizacion(i) {
     row.style.backgroundColor = "#FF8066";
     myTable.rows[j].cells[10].colSpan = 3;
     myTable.rows[j].cells[10].innerHTML = "Rechazado";
+    myTable.rows[j].deleteCell(12);
     myTable.rows[j].deleteCell(11);
     cotizacionesRechazadas(i);
 }
@@ -188,6 +287,7 @@ function cargarRechazados() {
             row.style.backgroundColor = "#FF8066";
             myTable.rows[j].cells[10].colSpan = 3;
             myTable.rows[j].cells[10].innerHTML = "Rechazado";
+            myTable.rows[j].deleteCell(12);
             myTable.rows[j].deleteCell(11);
         }
     }
@@ -199,4 +299,12 @@ function readArrayFromSessionStorage(keyName) {
 
 function readArrayFromLocalStorage(keyName) {
     return JSON.parse(localStorage.getItem(keyName))
+}
+
+function getElementParent(pElement, pGen) {
+    var parent = pElement
+    for (var i = 0; i < pGen; i++) {
+        parent = parent.parentNode
+    }
+    return parent
 }

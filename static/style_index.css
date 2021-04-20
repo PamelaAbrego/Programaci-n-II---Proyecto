@@ -6,3 +6,18 @@
 .box {
   text-align: center;
 }
+
+.body {
+  text-align:center;
+  width:100%;
+  margin:0 auto;
+  padding:0px;
+  font-family:verdana;
+  background-color:#cccccc;
+  background: url(../images/fondo.jpeg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  -ms-background-size: cover;
+  background-size: cover;
+  }
