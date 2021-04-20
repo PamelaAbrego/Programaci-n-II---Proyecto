@@ -72,7 +72,7 @@ position: relative;
 
 }
 /*formularios*/
-.contenedorLoginRegister{
+/*.contenedorLoginRegister{
     display: flex;
     align-items: center;
     width: 100%;
@@ -88,6 +88,30 @@ position: relative;
     transition: left 500ms cubic-bezier(0.175,0.885,0.320,1.275);
 
 
+}*/
+
+.contenedorLoginRegister{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 380px;
+    position: relative;
+    top: -185px;
+    left: 10px;
+    background: rgb(1, 6, 46);
+    border-radius: 20px;
+
+    transition: left 500ms cubic-bezier(0.175,0.885,0.320,1.275);
+
+
+}
+.contenedorLoginRegister .formRegistro{
+    width: 100%;
+    padding: 80px 20px;
+    background: rgb(1, 6, 46);
+    position: absolute;
+    border-radius: 20px;
+
 }
 
 .contenedorLoginRegister  h2{
@@ -97,13 +121,14 @@ position: relative;
     color: gold;
 }
 .contenedorLoginRegister  input{
-    width: 100%;
+    width: 90%;
     margin-top: 20px;
     padding: 10px;
     border: none;
     background: #ffffff;
     font-size: 16px;
     outline: none;
+    border-radius: 20px;
 }
 .contenedorLoginRegister button{
     padding: 10px 40px;
