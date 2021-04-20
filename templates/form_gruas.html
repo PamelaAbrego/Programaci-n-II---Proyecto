@@ -4,11 +4,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alquiler de Grúas</title>
+    <title>Formulario Cotizaciones</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='style_formproyectos.css')}}">
+    <style>
+        .correcion {
+            color: red;
+        }
+    </style>
 </head>
 
 <body>
-    <div class="form">
+<style>
+                    .viñeta {
+                        background-color: rgb(8, 8, 59);
+                    }
+                </style>
+
+                <style>
+                    .boton1 {
+                        text-decoration: none;
+                        padding: 10px;
+                        font-weight: 300;
+                        font-size: 20px;
+                        color: #ffffff;
+                        background-color: #1e2b4e;
+                        border-radius: 6px;
+                        border: 2px solid #ffffff;
+                    }
+
+                    .boton1:hover {
+                        color: #1e2b4e;
+                        background-color: #ffffff;
+                    }
+                </style>
+    <script src="{{url_for('static', filename='formscript.js')}}"></script>
+     <div class="form">
         <h1>Formulario para Alguiler de Grúas</h1>
         <form>
             <!-- <label for="cliente">Cliente:</label> -->
@@ -55,10 +85,11 @@
             <br>
         </form>
 
-        <button onclick="add()">Enviar</button><br><br>
+        <button class ="boton1" onclick="add()">Enviar</button><br><br>
     </div>
     <script src="{{url_for('static', filename='script_form_gruas.js')}}"></script>
-
 </body>
 
-</html>
+
+
+
