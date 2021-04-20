@@ -1,0 +1,143 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+body{
+    box-sizing: border-box;
+    font-family: "Lato", sans-serif;
+    background-color: #2107b4;
+}
+
+.main-tittle{
+    position: absolute;
+    margin-left: 80px;
+    margin-top: 0px;
+    margin-right: 40px;
+    color: gold;
+}
+
+.info1{
+    display: inline-flex;
+    margin-top: 100px;
+    margin-left: 50px;
+    align-items: center;
+    color:black;  
+    font-size: 30px;
+    background-color: rgb(255,255,255);
+    border-radius: 50px;
+}
+
+.img1{
+    position: relative;
+    margin-left: 60px;
+    margin-top: 60px;
+    margin-bottom: 150px;
+    margin-right: 40px;
+    width: 300px;
+    height: 100px;
+}
+
+.info2{
+    display: inline-flex;
+    margin-top: 100px;
+    margin-left: 50px;
+    align-items: center;
+    color:black;  
+    font-size: 30px;
+    background-color: rgb(255,255,255);
+    border-radius: 50px;
+}
+
+.img2{
+    position: relative;
+    margin-left: 60px;
+    margin-top: 60px;
+    margin-bottom: 70px;
+    margin-right: 40px;
+    width: 0.5;
+    height: 0.1;
+}
+
+.btn{
+    font-size: 30px;
+    margin-left: 70px;
+    background-color: rgb(255,255,255);
+    border-radius: 70px;
+}
+
+@media only screen and (max-width: 978px) {
+    .info1{
+        margin-left: 30px; 
+        font-size: 20px;
+    }
+
+    .img1{
+        margin-left: 20px;
+        margin-top: 40px;
+        margin-bottom: 150px;
+        margin-right: 10px;
+    }
+
+    .info2{
+        margin-left: 30px; 
+        font-size: 20px;
+    }
+
+    .img2{
+        margin-left: 30px;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        margin-right: 25px;
+    }
+
+    .btn{
+        font-size: 20px;
+        margin-left: 50px;
+    }
+}
+
+@media only screen and (max-width: 855px){
+    .info1{
+        margin-left: 20px; 
+        font-size: 20px;
+    }
+
+    .img1{
+        width: 280px;
+    }
+
+    .info2{
+        margin-left: 20px; 
+        font-size: 20px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .main-tittle{
+        margin-left: 90px;
+        font-size: 15px;
+    }
+    .info1{
+        margin-left: 90px; 
+        font-size: 20px;
+        width: 300px;
+    }
+
+    .img1{
+        width: 0px;
+        display: none;
+    }
+
+    .info2{
+        margin-left: 90px; 
+        font-size: 20px;
+        width: 300px;
+    }
+
+    .img2{
+        display: none;
+    }
+
+    .btn{
+        margin-left: 130px;
+    }
+  }

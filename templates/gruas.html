@@ -3,27 +3,49 @@
 
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/style_gruas.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alquiler de Grúas</title>
 </head>
 
 <body>
-    <div class="tittle">
+    <div class="main-tittle">
         <h1>Alquiler de Grúas</h1>
     </div>
 
-    <ul>
-        <li>
-            Marca: International Año: 1995 Costo: $70 por hora
-            <div class="img1"><img src="/static/images/1995.png" width="500" height="300" alt="Modelo1"></div>
-        </li>
-        <li>
-            Marca: International Año: 1986 Costo: $70 por hora
-            <div class="img2"><img src="/static/images/1986.png" width="500" height="300" alt="Modelo2"></div>
-        </li>
-    </ul>
+    <div class="info1">
+        <ul>
+            <li>
+                Marca: International <br><br>
+            </li>
+            <li>
+                Año: 1995 <br> <br>
+            </li>
+            <li>
+                Costo: $70 por hora
+            </li>
+        </ul>
+        <div class="img1"><img src="/static/images/1995.png" width="250" alt="Modelo1"></div>
+    </div>
+    <br>
+    <div class="info2">
+        <ul>
+            <li>
+                Marca: International <br><br>
+            </li>
+            <li>
+                Año: 1986 <br><br>
+            </li>
+            <li>
+                Costo: $70 por hora
+            </li>
+        </ul>
 
-    <button onclick=window.location.href='/form_gruas'>Alquilar</button>
+        <div class="img2"><img src="/static/images/1986.png" width="200" alt="Modelo2"></div>
+    </div>
+    <br><br><br>
+
+    <button class="btn" onclick=window.location.href='/form_gruas'>Alquilar</button>
 </body>
 
 </html>
