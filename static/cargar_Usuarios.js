@@ -41,3 +41,7 @@ function cargarUsuarios() {
 }
 
 cargarUsuarios();
+
+function login() {
+    window.location.href = '/login';
+}

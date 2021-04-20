@@ -8,12 +8,53 @@
     <title>COMSEDI</title>
 </head>
 
-<body background="/static/images/fondo.jpeg">
-    <div class="box">
+<body>
+    <style>
+        html {
+            background: url(/static/images/fondo.jpeg) no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+            width: 100%;
+        }
+    </style>
+    <style>
+        .contenido {
+            width: 100%;
+            height: auto;
+            bottom: 0px;
+            position: absolute;
+            text-align: center;
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+        }
+
+        .boton {
+            text-decoration: none;
+            padding: 10px;
+            font-weight: 300;
+            font-size: 20px;
+            color: #ffffff;
+            background-color: #1e2b4e;
+            border-radius: 6px;
+            border: 2px solid #ffffff;
+        }
+
+        .boton:hover {
+            color: #fafafa;
+            background-color: #0f073d;
+        }
+    </style>
+    <div class="contenido" style="vertical-align:middle;">
         <div class="main_title">
-            <h1>COMSEDI S.A. DE C.V.</h1>
-            <h2>COMPAÑÍA DE SERVICIO DIVERSOS</h2>
-            <a href="{{url_for('login')}}" style="color: white;">Login</a>
+            <h1 class="texto">COMSEDI S.A. DE C.V.</h1>
+            <h2 class="texto">COMPAÑÍA DE SERVICIO DIVERSOS</h2>
+            <br>
+            <button class="boton" onclick="login()">Iniciar Sesión</button>
+            <br>
+            <br>
         </div>
     </div>
     <script src="{{url_for('static', filename='cargar_Usuarios.js')}}"></script>

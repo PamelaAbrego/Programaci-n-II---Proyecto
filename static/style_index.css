@@ -1,6 +1,7 @@
 .main_title {
   font-size: xx-large;
-  color: gold;
+  color:gold;
+  font-family: sans-serif;,
 }
 
 .box {
@@ -13,8 +14,8 @@
   margin:0 auto;
   padding:0px;
   font-family:verdana;
-  background-color:#cccccc;
   background: url(../images/fondo.jpeg) no-repeat center center fixed; 
+  height: 100%;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
