@@ -48,9 +48,9 @@ function actDatos() {
         row.insertCell(4).innerHTML = array[i].ubicacion;
         row.insertCell(5).innerHTML = array[i].fecha;
         row.insertCell(6).innerHTML = array[i].tiempo;
-        row.insertCell(7).innerHTML = "<button onclick='modificarAlquiler(" + i + ")'>Modificar</button><input type='hidden' id='" + i + "'>";
-        row.insertCell(8).innerHTML = "<button onclick='aceptarAlquiler(" + i + ")'>Aceptar</button>";
-        row.insertCell(9).innerHTML = "<button onclick='rechazarAlquiler(" + i + ")'>Rechazar</button>";
+        row.insertCell(7).innerHTML = "<button class='boton1' onclick='modificarAlquiler(" + i + ")'>Modificar</button><input type='hidden' id='" + i + "'>";
+        row.insertCell(8).innerHTML = "<button class='boton1' onclick='aceptarAlquiler(" + i + ")'>Aceptar</button>";
+        row.insertCell(9).innerHTML = "<button class='boton1' onclick='rechazarAlquiler(" + i + ")'>Rechazar</button>";
         array[i].estado = "Recibido"
 
         addResultToStorageRegistrosRecibidos(array[i].user, array[i].email, array[i].modelo, array[i].cantidad, array[i].ubicacion, array[i].fecha, array[i].tiempo)
@@ -59,11 +59,21 @@ function actDatos() {
     cargarRechazados();
 }
 
+function perfil() {
+    var perfilActual = readArrayFromSessionStorage("perfilActual");
+    if (perfilActual.role === "Administrador") {
+        window.location.href = '/perfil_admin';
+    }
+    if (perfilActual.role === "Cliente") {
+        window.location.href = '/perfil_cliente';
+    }
+}
+
 function aceptarAlquiler(i) {
     var myTable = document.getElementById("tabla");
     var j = myTable.getElementsByTagName('tr').length - 1 - i;
     var row = myTable.rows[j];
-    row.style.backgroundColor = "#86db72";
+    row.style.backgroundColor = "#34BB3A";
     myTable.rows[j].cells[7].colSpan = 3;
     myTable.rows[j].cells[7].innerHTML = "Aceptado";
     myTable.rows[j].deleteCell(9);
@@ -79,7 +89,7 @@ function cargarAceptados() {
             var i = aceptados[k].id;
             var j = myTable.getElementsByTagName('tr').length - 1 - i;
             var row = myTable.rows[j];
-            row.style.backgroundColor = "#86db72";
+            row.style.backgroundColor = "#34BB3A";
             myTable.rows[j].cells[7].innerHTML = "Aceptado";
             myTable.rows[j].deleteCell(9);
             myTable.rows[j].deleteCell(8);
@@ -92,7 +102,7 @@ function rechazarAlquiler(i) {
     var myTable = document.getElementById("tabla");
     var j = myTable.getElementsByTagName('tr').length - 1 - i;
     var row = myTable.rows[j];
-    row.style.backgroundColor = "#FF8066";
+    row.style.backgroundColor = "#D54529";
     myTable.rows[j].cells[7].colSpan = 3;
     myTable.rows[j].cells[7].innerHTML = "Rechazado";
     myTable.rows[j].deleteCell(9);
@@ -108,7 +118,7 @@ function cargarRechazados() {
             var i = rechazados[k].id;
             var j = myTable.getElementsByTagName('tr').length - 1 - i;
             var row = myTable.rows[j];
-            row.style.backgroundColor = "#FF8066";
+            row.style.backgroundColor = "#D54529";
             myTable.rows[j].cells[7].colSpan = 3;
             myTable.rows[j].cells[7].innerHTML = "Rechazado";
             myTable.rows[j].deleteCell(9);
@@ -202,7 +212,7 @@ function modificarAlquiler(pIndex) {
     children[4].innerHTML = "<input type='text' id='ubicacion" + pIndex + "' value='" + children[4].innerText + "'>"
     children[5].innerHTML = "<input type='date' id='fecha" + pIndex + "' value='" + children[5].innerText + "'>"
     children[6].innerHTML = "<input type='number' id='tiempo" + pIndex + "' min='1' max='240' value='" + children[6].innerText + "'>"
-    children[7].innerHTML = "<button onclick='modifyOffElementByIndex(" + pIndex + ",1)'>Guardar</button><button onclick='modifyOffElementByIndex(" + pIndex + ",0)'>Regresar</button><input type='hidden' id='" + pIndex + "'>"
+    children[7].innerHTML = "<button class='boton1' onclick='modifyOffElementByIndex(" + pIndex + ",1)'>Guardar</button><button class='boton1' onclick='modifyOffElementByIndex(" + pIndex + ",0)'>Regresar</button><input type='hidden' id='" + pIndex + "'>"
 }
 
 function modifyOffElementByIndex(pIndex, pSave) {
@@ -222,7 +232,7 @@ function modifyOffElementByIndex(pIndex, pSave) {
         children[4].innerHTML = addResultArray[pIndex].ubicacion
         children[5].innerHTML = addResultArray[pIndex].fecha
         children[6].innerHTML = addResultArray[pIndex].tiempo
-        children[7].innerHTML = "<button onclick='modificarAlquiler(" + pIndex + ")'>Modificar</button><input type='hidden' id='" + pIndex + "'>";
+        children[7].innerHTML = "<button class='boton1' onclick='modificarAlquiler(" + pIndex + ")'>Modificar</button><input type='hidden' id='" + pIndex + "'>";
     } else {
         //save
         var input1 = document.getElementById("modelo" + pIndex).value
@@ -242,7 +252,7 @@ function modifyOffElementByIndex(pIndex, pSave) {
         children[4].innerHTML = input3
         children[5].innerHTML = input4
         children[6].innerHTML = input5
-        children[7].innerHTML = "<button onclick='modificarAlquiler(" + pIndex + ")'>Modificar</button><input type='hidden' id='" + pIndex + "'>";
+        children[7].innerHTML = "<button class='boton1' onclick='modificarAlquiler(" + pIndex + ")'>Modificar</button><input type='hidden' id='" + pIndex + "'>";
 
         localStorage.setItem("lAddResultArray", JSON.stringify(addResultArray))
     }
