@@ -33,8 +33,8 @@ function actDatos() {
         row.insertCell(1).innerHTML = array[i].password;
         row.insertCell(2).innerHTML = array[i].email;
         row.insertCell(3).innerHTML = array[i].role;
-        row.insertCell(4).innerHTML = "<button onclick='modificarUsuario(" + i + ")'>Modificar</button><input type='hidden' id='" + i + "'>";
-        row.insertCell(5).innerHTML = "<button onclick='eliminarUsuario(" + i + ")'>Eliminar</button><input type='hidden' id='" + i + "'>";
+        row.insertCell(4).innerHTML = "<button class= 'boton' onclick='modificarUsuario(" + i + ")'>Modificar</button><input type='hidden' id='" + i + "'>";
+        row.insertCell(5).innerHTML = "<button class= 'boton' onclick='eliminarUsuario(" + i + ")'>Eliminar</button><input type='hidden' id='" + i + "'>";
     }
 }
 
@@ -63,8 +63,13 @@ function modificarUsuario(pIndex) {
     var children = parent.children
     children[1].innerHTML = "<input type='text' id='password" + pIndex + "' value='" + children[1].innerText + "'>"
     children[2].innerHTML = "<input type='text' id='email" + pIndex + "' value='" + children[2].innerText + "'>"
-    children[3].innerHTML = "<input type='radio' id='Cliente' name='Cliente'><label for 'ClienteNat'> Cliente </label> <br><input type='radio' id='Administrador' name='Cliente'><label for 'ClienteEmp'> Administrador </label>"
-    children[4].innerHTML = "<button onclick='modifyOffElementByIndex(" + pIndex + ",1)'>Guardar</button><button onclick='modifyOffElementByIndex(" + pIndex + ",0)'>Regresar</button><input type='hidden' id='" + pIndex + "'>"
+    if (children[3].innerText === "Cliente") {
+        children[3].innerHTML = "<input type='radio' id='Cliente' name='Cliente' checked><label for 'ClienteNat'> Cliente </label> <br><input type='radio' id='Administrador' name='Cliente'><label for 'ClienteEmp'> Administrador </label>"
+    }
+    if (children[3].innerText === "Administrador") {
+        children[3].innerHTML = "<input type='radio' id='Cliente' name='Cliente'><label for 'ClienteNat'> Cliente </label> <br><input type='radio' id='Administrador' name='Cliente'checked><label for 'ClienteEmp'> Administrador </label>"
+    }
+    children[4].innerHTML = "<button class= 'boton' onclick='modifyOffElementByIndex(" + pIndex + ",1)'>Guardar</button><button class= 'boton' onclick='modifyOffElementByIndex(" + pIndex + ",0)'>Regresar</button><input type='hidden' id='" + pIndex + "'>"
 }
 
 function modifyOffElementByIndex(pIndex, pSave) {
@@ -82,7 +87,7 @@ function modifyOffElementByIndex(pIndex, pSave) {
         children[1].innerHTML = addResultArray[pIndex].password
         children[2].innerHTML = addResultArray[pIndex].email
         children[3].innerHTML = addResultArray[pIndex].role
-        children[4].innerHTML = "<button onclick='modificarUsuario(" + pIndex + ")'>Modificar</button><input type='hidden' id='" + pIndex + "'>";
+        children[4].innerHTML = "<button class= 'boton' onclick='modificarUsuario(" + pIndex + ")'>Modificar</button><input type='hidden' id='" + pIndex + "'>";
     } else {
         //save
         var input1 = document.getElementById("password" + pIndex).value
@@ -102,7 +107,7 @@ function modifyOffElementByIndex(pIndex, pSave) {
         children[1].innerHTML = input1
         children[2].innerHTML = input2
         children[3].innerHTML = input3
-        children[4].innerHTML = "<button onclick='modificarUsuario(" + pIndex + ")'>Modificar</button><input type='hidden' id='" + pIndex + "'>";
+        children[4].innerHTML = "<button class= 'boton' onclick='modificarUsuario(" + pIndex + ")'>Modificar</button><input type='hidden' id='" + pIndex + "'>";
 
         localStorage.setItem("wUserArray", JSON.stringify(addResultArray))
     }

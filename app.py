@@ -14,7 +14,7 @@ def home():
 
 @app.route("/principal")
 def principal():
-    return render_template("principal.html")
+    return render_template("index1.html")
 
 
 @app.route("/contacto")

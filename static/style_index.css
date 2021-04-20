@@ -1,8 +1,24 @@
 .main_title {
   font-size: xx-large;
-  color: gold;
+  color:gold;
+  font-family: sans-serif;,
 }
 
 .box {
   text-align: center;
 }
+
+.body {
+  text-align:center;
+  width:100%;
+  margin:0 auto;
+  padding:0px;
+  font-family:verdana;
+  background: url(../images/fondo.jpeg) no-repeat center center fixed; 
+  height: 100%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  -ms-background-size: cover;
+  background-size: cover;
+  }

@@ -25,3 +25,17 @@ function toggleVideo() {
 function logout() {
     sessionStorage.removeItem("perfilActual")
 }
+
+function perfil() {
+    var perfilActual = readArrayFromSessionStorage("perfilActual");
+    if (perfilActual.role === "Administrador") {
+        window.location.href = '/perfil_admin';
+    }
+    if (perfilActual.role === "Cliente") {
+        window.location.href = '/perfil_cliente';
+    }
+}
+
+function readArrayFromSessionStorage(keyName) {
+    return JSON.parse(sessionStorage.getItem(keyName))
+}

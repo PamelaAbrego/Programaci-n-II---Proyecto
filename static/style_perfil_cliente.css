@@ -32,17 +32,39 @@ body{
     background-color: #063b5c;
 }
 
-
 .information_cliente{
-    color: white;
+  color: white;
+  padding-left: 5px;
+}
+
+.admintbl {
+  text-align: center;
+  font-size: large;
+}
+
+.admintbl2 {
+  text-align: center;
+}
+
+.form_usuarios {
+  text-align: center;
+  background-color: rgb(24, 15, 68);
+  color: white;
+  font-size: larger;
+  border-radius: 30px;
+}
+
+.information_cliente_datos{
+    color: #48474b;
+    padding-top: 0px;
 }
 
 .datos_usuario {
     font-size: large;
+    background-color: rgb(255, 255, 255);
+    border-radius: 70px;
 }
-.datos_usuario > img {
-    float: left;
-}
+
 .text-primary-p {
     color: #2107b4;
     font-size: 18px;
