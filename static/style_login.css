@@ -6,7 +6,12 @@
 
 }
 body{
-    background-color:rgb(3, 3, 54);
+    background: url(/static/images/fondo.jpeg) no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+            width: 100%;
 }
 
 main{
@@ -31,7 +36,7 @@ position: relative;
     display: flex;
     justify-content: center;
     backdrop-filter: blur(10px);
-    background-color:rgba(0, 0, 0, 0.5)
+    background-color:rgba(6, 15, 66, 0.685)
 }
 
 .backBox div{
@@ -76,7 +81,7 @@ position: relative;
     top: -185px;
     left: 10px;
     padding: 80px 20px;
-    background:black;
+    background: rgb(1, 6, 46);
     
     border-radius: 20px;
     
@@ -106,7 +111,7 @@ position: relative;
     border: none;
     font-size: 14px;
     background:gold;
-    color:black;
+    color:rgb(10, 0, 48);
     cursor: pointer;
     outline: none;
 }
@@ -116,7 +121,7 @@ position: relative;
     display: block;
     width: 100%;
     padding: 80px 20px;
-    background: rgb(0, 0, 0);
+    background: rgb(1, 6, 46);
     position: absolute;
     border-radius: 20px;
 }
