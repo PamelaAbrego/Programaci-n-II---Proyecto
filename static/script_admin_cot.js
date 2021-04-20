@@ -308,3 +308,13 @@ function getElementParent(pElement, pGen) {
     }
     return parent
 }
+
+function perfil() {
+    var perfilActual = readArrayFromSessionStorage("perfilActual");
+    if (perfilActual.role === "Administrador") {
+        window.location.href = '/perfil_admin';
+    }
+    if (perfilActual.role === "Cliente") {
+        window.location.href = '/perfil_cliente';
+    }
+}

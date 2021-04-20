@@ -577,3 +577,20 @@ body{
     left: 630px;
     bottom: 220px;
 }
+
+.botonForm2 {
+  text-decoration: none;
+  padding: 10px;
+  font-weight: 300;
+  font-size: 20px;
+  color: #ffffff;
+  background-color: #1e2b4e;
+  border-radius: 6px;
+  border: 2px solid #ffffff;
+  text-align: center;
+}
+
+.botonForm2:hover {
+   color: #1e2b4e;
+   background-color: #ffffff;
+}
