@@ -32,17 +32,21 @@
             <div class="main__container">
 
                 <div class="main__title">
-                    <h1>COMSEDI S.A. DE C.V.</h1>
+                    <h1>BIENVENIDO</h1>
                 </div>
                 <br>
                 <div class="information_cliente">
                     <div class="datos_usuario">
-                        <img src="/static/images/avatar.png" width="150" height="150" alt="">
-                        <h1 id="user_cliente"></h1>
-                        <br>
-                        <h1 id="email_cliente"></h1>
-                        <br>
-                        <br>
+                        <img src="/static/images/avatar.png" align="left" style="padding: 10px;" width="150"
+                            height="150" alt="">
+                        <div class="information_cliente_datos">
+                            <br>
+                            <h1 id="user_cliente"></h1>
+                            <br>
+                            <h1 id="email_cliente"></h1>
+                            <br>
+                            <br>
+                        </div>
                     </div>
                     <div class="alquileres">
                         <br>
@@ -98,7 +102,7 @@
             <div class="sidebar__title">
                 <div class="sidebar__img">
                     <img src="/static/images/logo.png" alt="logo" />
-                    <h1>COMSEDI S.A. DE C.V.</h1>
+                    <h1 style="padding: 10px;">COMSEDI</h1>
                 </div>
                 <i onclick="closeSidebar()" class="fa fa-times" id="sidebarIcon" aria-hidden="true"></i>
             </div>
@@ -111,7 +115,7 @@
 
                 <div class="sidebar__link">
                     <i class="fa fa-home"></i>
-                    <a href="{{url_for('home')}}">¿Quiénes Somos?</a>
+                    <a href="{{url_for('principal')}}">¿Quiénes Somos?</a>
                 </div>
                 <div class="sidebar__link">
                     <i class="fa fa-star" aria-hidden="true"></i>
@@ -123,7 +127,7 @@
                 </div>
                 <div class="sidebar__link">
                     <i class="fa fa-book"></i>
-                    <a href="#">Capacitaciones</a>
+                    <a href="{{url_for('capacitaciones')}}">Capacitaciones</a>
                 </div>
             </div>
             <div class="sidebar__link">
