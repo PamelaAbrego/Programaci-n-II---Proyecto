@@ -54,6 +54,12 @@ body{
   background-color: #ffffff;
 }
 
+.informationCoti{
+  color: white;
+  max-width:580px;
+  text-align: justify;
+}
+
 .text-primary-p {
     color: #2107b4;
     font-size: 18px;
@@ -127,6 +133,14 @@ body{
     justify-content: center;
     align-items: center;
   }
+
+  .navbar__rigthCoti {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position:relative;
+    left:860px;
+  }
   
   .navbar__right > a {
     margin-right: 30px;
@@ -187,6 +201,15 @@ body{
     margin: 20px 0;
   }
 
+  .main__cardsCoti {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 30px;
+    margin: 20px 0;
+    position:relative;
+    bottom:160px;
+  }
+
   .card {
     display: flex;
     flex-direction: column;
@@ -196,6 +219,23 @@ body{
     border-radius: 5px;
     background: #ffffff;
     }
+
+    .cardCoti {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      height: 5px;
+      padding: 15px;
+      border-radius: 50px;
+      background: #ffffff;
+      text-align: center;
+    }
+
+    .cardCoti:hover{
+      background:  rgb(189, 186, 174);
+    }
+
+ 
   
   .card_inner {
     display: flex;
@@ -206,6 +246,7 @@ body{
   .card_inner > span {
     font-size: 25px;
   }
+
 
 
 
@@ -530,3 +571,9 @@ body{
       display: none;
     }
   }
+
+  #fotoEquipo {
+    position:relative;
+    left: 630px;
+    bottom: 220px;
+}
