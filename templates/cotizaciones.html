@@ -7,21 +7,22 @@
     <title>Cotizaciones</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
         integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" />
-    <link rel="stylesheet" href="{{url_for('static', filename='style_principal.css')}}"> 
+    <link rel="stylesheet" href="{{url_for('static', filename='style_principal.css')}}">
 
-    <style> 
-        table, td, th {
+    <style>
+        table,
+        td,
+        th {
             border: 1px solid black;
         }
 
         table {
             width: 100%;
             border-collapse: collapse;
-        } 
-
-        
+        }
     </style>
 </head>
+
 <body id="body">
 
     <div class="container">
@@ -31,7 +32,7 @@
             </div>
 
             <div class="navbar__rigthCoti">
-                <a href="{{url_for('perfil_cliente')}}" id="navbar_a">Mi Perfil</a>
+                <button class="boton" onclick="perfil()">Mi Perfil</button>
                 <a href="#">
                     <img width="30" src="/static/images/avatar.png" alt="" />
                 </a>
@@ -46,16 +47,22 @@
                 </div>
                 <br>
                 <div class="informationCoti">
-                    <p> Comsedi S.A. de C.V. es un empresa altamente capacitada para la ejecución de proyectos en el área de construcción de obras civiles, mantenimiento de red eléctrica y poda de alto riesgo. 
-                    Contamos con un equipo experimentado y la maquinaria necesaria para llevar a cabo todos los trabajos que requieras. </p>
+                    <p> Comsedi S.A. de C.V. es un empresa altamente capacitada para la ejecución de proyectos en el
+                        área de construcción de obras civiles, mantenimiento de red eléctrica y poda de alto riesgo.
+                        Contamos con un equipo experimentado y la maquinaria necesaria para llevar a cabo todos los
+                        trabajos que requieras. </p>
                     <br>
-                    <p> Para poder desarrollar tu proyecto, primero necesitas llenar un formulario de cotización, para así informarnos sobre lo que necesitas.  
-                    Para un mejor servicio, es necesario que dentro del formulario seas claro con los detalles que necesitas que Comsedi haga por tí. 
+                    <p> Para poder desarrollar tu proyecto, primero necesitas llenar un formulario de cotización, para
+                        así informarnos sobre lo que necesitas.
+                        Para un mejor servicio, es necesario que dentro del formulario seas claro con los detalles que
+                        necesitas que Comsedi haga por tí.
                     </p>
                     <br>
-                    <p>Seguido de eso, nos contactaremos contigo, y con una visita técnica, nuestro equipo profesional lo evaluará más de cerca.</p>
+                    <p>Seguido de eso, nos contactaremos contigo, y con una visita técnica, nuestro equipo profesional
+                        lo evaluará más de cerca.</p>
 
-                    <div id="fotoEquipo" class="img3"><img src="/static/images/equipoTrabajo.jpg" width="300" height="180" alt="Modelo2"></div>
+                    <div id="fotoEquipo" class="img3"><img src="/static/images/equipoTrabajo.jpg" width="300"
+                            height="180" alt="Modelo2"></div>
                 </div>
 
                 <div class="main__cardsCoti">
@@ -70,7 +77,7 @@
             <div class="sidebar__title">
                 <div class="sidebar__img">
                     <img src="/static/images/logo.png" alt="logo" />
-                    <h1>COMSEDI S.A. DE C.V.</h1>
+                    <h1>COMSEDI</h1>
                 </div>
                 <i onclick="closeSidebar()" class="fa fa-times" id="sidebarIcon" aria-hidden="true"></i>
             </div>
@@ -108,4 +115,3 @@
 </body>
 
 </html>
-
